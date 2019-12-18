@@ -16,9 +16,9 @@ Auth::routes();
 
 Route::group(['domain' => 'admin.extonan-web.test', 'middleware' => 'admin'], function () {
     // Route::any('/adminer', '\Aranyasen\LaravelAdminer\AdminerController@index');
-    Route::get('/', 'ManajemenController@home');
-    Route::get('/anime/tambah', 'ManajemenController@tambah');
-    Route::post('/anime/tambah', 'ManajemenController@simpan');
+    Route::get('/anime', 'AnimeController@tampil');
+    Route::get('/anime/tambah', 'AnimeController@tambah');
+    Route::post('/anime/tambah', 'AnimeController@simpan');
 
 });
 

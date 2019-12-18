@@ -3,115 +3,113 @@
 @section('konten')
 @section('judul', 'Tambah Anime')
 <!-- Section: Inputs -->
-<section class="section card mb-5 px-4  unique-color-dark text-white">
-    <div class="card-body">
-        <h5>Bidang Isian</h5>
-        <!-- Section heading -->
-        <form method="post" action="{{url('anime/tambah')}}" enctype="multipart/form-data">
-            @csrf
-            <div class="col">
-                <div class="row justify-content-md-center">
-                    <div class="col-md-5 text-center">
-                        <div class="md-form">
-                            <div class="file-upload-wrapper">
-                                <input type="file" name="image" id="image" class="file-upload" data-height="450" />
+<section class="section mb-4">
+    <form method="post" action="{{url('anime/tambah')}}" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Bidang Isian</h5>
+                        <!-- Section heading -->
+
+                        @csrf
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="md-form">
+                                        <i class="far fa-edit prefix"></i>
+                                        <input type="text" id="judul" name="judul" class="form-control">
+                                        <label for="judul" name="judul" class="">Judul</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="md-form">
+                                        <i class="fad fa-edit prefix"></i>
+                                        <textarea id="form10" class="md-textarea form-control" name="judul_alt" form-control></textarea>
+                                        <label for="judul_alt" name="judul_alt" class="">Judul alternatif. Untuk tiap judul
+                                            gunakan baris baru</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="md-form">
+                                        <select class="mdb-select md-form" name="genre[]" multiple searchable="Cari genre ....">
+                                            <option value="" disabled selected>Pilih Genre</option>
+                                            @foreach ($genres as $g)
+                                            <option value=" {{ $g->genre }}">{{$g->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <button class="btn-save btn btn-primary btn-sm">Simpan</button>
+                                    </div>
+                                </div>
+                                <div class="col mb-4">
+                                    <div class="md-form">
+                                        <select class="mdb-select md-form" name="jenis[]" multiple>
+                                            <option value="" disabled selected>Pilih Jenis</option>
+                                            <option value="1">TV</option>
+                                            <option value="2">Movie</option>
+                                            <option value="5">OVA</option>
+                                        </select>
+                                        <button class="btn-save btn btn-primary btn-sm">Simpan</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="md-form">
+                                        <select class="mdb-select md-form" name="musim">
+                                            <option value="" disabled selected>Pilih Musim</option>
+                                            <option value="Spring">Spring</option>
+                                            <option value="Summer">Summer</option>
+                                            <option value="Fall">Fall</option>
+                                            <option value="Winter">Winter</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="md-form">
+                                        <input type="number" id="tahun" class="form-control" name="skor" step="0.01" min="0" max="10">
+                                        <label for="skor">Skor</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="md-form">
+                                        <input type="number" id="tahun" class="form-control" name="tahun" min="1800">
+                                        <label for="tahun">Tahun</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4">
+                                    <div class="md-form">
+                                        <i class="fas fa-i-cursor prefix"></i>
+                                        <textarea id="form7" class="md-textarea form-control" name="sinopsis" length="320" rows="12"></textarea>
+                                        <label for="form7">Sinopsis</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-4 text-center">
+                                <div class="md-form">
+                                    <button type="submit" class="btn btn-primary btn-rounded btn-lg btn-block">Kirim</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="md-form">
-                            <i class="far fa-edit prefix"></i>
-                            <input type="text" id="judul" name="judul" class="form-control">
-                            <label for="judul" name="judul" class="">Judul</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="md-form">
-                            <i class="fad fa-edit prefix"></i>
-                            <textarea id="form10" class="md-textarea form-control" name="judul_alt"
-                                form-control></textarea>
-                            <label for="judul_alt" name="judul_alt" class="">Judul alternatif. Untuk tiap judul
-                                gunakan baris baru</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="md-form">
-                            <select class="mdb-select md-form" name="genre[]" multiple searchable="Cari genre ....">
-                                <option value="" disabled selected>Pilih Genre</option>
-                                @foreach ($genres as $g)
-                                <option value=" {{ $g->genre }}">{{$g->name}}</option>
-                                @endforeach
-                            </select>
-                            <button class="btn-save btn btn-primary btn-sm">Simpan</button>
-                        </div>
-                    </div>
-                    <div class="col mb-4">
-                        <div class="md-form">
-                            <select class="mdb-select md-form" name="jenis[]" multiple>
-                                <option value="" disabled selected>Pilih Jenis</option>
-                                <option value="1">TV</option>
-                                <option value="2">Movie</option>
-                                <option value="5">OVA</option>
-                            </select>
-                            <button class="btn-save btn btn-primary btn-sm">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="md-form">
-                            <select class="mdb-select md-form" name="musim">
-                                <option value="" disabled selected>Pilih Musim</option>
-                                <option value="Spring">Spring</option>
-                                <option value="Summer">Summer</option>
-                                <option value="Fall">Fall</option>
-                                <option value="Winter">Winter</option>
-                            </select>
-
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="md-form">
-                            <input type="number" id="tahun" class="form-control" name="skor" step="0.01" min="0"
-                                max="10">
-                            <label for="skor">Skor</label>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="md-form">
-                            <input type="number" id="tahun" class="form-control" name="tahun" min="1800">
-                            <label for="tahun">Tahun</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-4">
-                        <div class="md-form">
-                            <i class="fas fa-i-cursor prefix"></i>
-                            <textarea id="form7" class="md-textarea form-control" name="sinopsis" length="320"
-                                rows="12"></textarea>
-                            <label for="form7">Sinopsis</label>
-                        </div>
-                    </div>
+            </div>
+            <div class="col">
+                <div class="file-upload-wrapper">
+                    <input type="file" name="image" id="image" class="file-upload" data-height="450" />
                 </div>
             </div>
-
-
-            <div class="row">
-                <div class="col mb-4 text-center">
-                    <div class="md-form">
-                        <button type="submit" class="btn btn-primary btn-rounded btn-lg btn-block">Kirim</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </section>
 <!-- Section: Inputs -->
 @endsection
@@ -578,24 +576,17 @@
 <script src="/js/mdb-file-upload.min.js"></script>
 <script>
     // Data Picker Initialization
-            
-            // Material Select Initialization
-            $(document).ready(function() {
-                $('.datepicker').pickadate();
-              $('.mdb-select').material_select();
-              $(function() {
-              $('[data-toggle="tooltip"]').tooltip()
-            });
-            $('.file-upload').file_upload();
 
-            $('.card.card-body.view.file-upload').addClass('special-color-dark');
+    // Material Select Initialization
+    $(document).ready(function() {
+        $('.datepicker').pickadate();
+        $('.mdb-select').material_select();
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+        $('.file-upload').file_upload();
 
-            $('.form-control, .md-form > label').addClass('text-white');
-
-            });
-            // Tooltips Initialization
-            
-
-
+    });
+    // Tooltips Initialization
 </script>
 @endsection

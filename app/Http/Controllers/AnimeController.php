@@ -9,10 +9,11 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Image;
 use File;
+use Yajra\DataTables\DataTables;
 
 class AnimeController extends Controller
 {
-    
+
 
     public $path;
     public $loc;
@@ -27,11 +28,19 @@ class AnimeController extends Controller
         $this->dimensions = [['1400', '450'], ['300', '425'], ['200', '300']];
     }
 
+    public function tampil()
+    {
+        if (request()->ajax()) {
+            $results = Datatables::of(Anime::query())->make(true);
+            return $results;
+        }
+        return view('admin.anime.index');
+    }
 
     public function tambah()
     {
         $genres = GenreList::all();
-        
+
         return view('admin.anime.tambah', compact('genres'));
     }
 
@@ -54,13 +63,13 @@ class AnimeController extends Controller
         $animes->user_post_id = Auth::user()->id;
         $animes->judul = $request->get('judul');
         $animes->tahun = $request->get('tahun');
-        $animes->judul_alt = preg_replace('#\s+#',',',trim($request->get('judul_alt')));
+        $animes->judul_alt = preg_replace('#\s+#', ',', trim($request->get('judul_alt')));
         $animes->sinopsis = $request->get('sinopsis');
         $animes->skor = $request->get('skor');
         $animes->musim = $request->get('musim');
         $animes->id = $id;
-        
-        
+
+
         //jenis
         $jenis = implode(',', $request->get('jenis'));
         $animes->jenis = $jenis;
@@ -78,24 +87,17 @@ class AnimeController extends Controller
             'dimensions' => implode('|', $this->type),
             'lokasi' => $this->loc . '/' . $id,
         ]);
-        
+
 
         //genre
         foreach ($request->get('genre') as $genre) {
             $animes->genres()->create(['genre' => $genre]);
         }
-        
+
         //simpan
-        
+
         return redirect('post')->with('success', 'Tambah anime berhasil');
-
     }
-
-
-
-
-
-
     public function unggah($request, $fileName, $tempat)
     {
 

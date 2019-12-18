@@ -22,11 +22,15 @@
     ::-webkit-input-placeholder {
       color: white;
     }
+
+    .bg {
+      background-color: #ddd;
+    }
   </style>
   @yield('style')
 </head>
 
-<body class="fixed-sn light-blue-skin special-color-dark">
+<body class="fixed-sn light-blue-skin bg">
   <!--Double navigation-->
   <header>
     <!-- Sidebar navigation -->
@@ -53,8 +57,8 @@
   <script src="{{ asset('js/mdb.min.js') }}"></script>
   <script>
     // SideNav Initialization
-      $(".button-collapse").sideNav();
-      new WOW().init();
+    $(".button-collapse").sideNav();
+    new WOW().init();
   </script>
   @yield('script')
 </body>
