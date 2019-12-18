@@ -30,11 +30,38 @@ class AnimeController extends Controller
 
     public function tampil()
     {
+
+        //$animes = Anime::select('users.name', 'users.email', 'animes.id', 'animes.judul', 'animes.slug',
+        //'animes.jenis', 'animes.skor', 'animes.created_at', 'animes.updated_at')
+        //->with('genres')->with('episodes')->leftJoin('users', 'animes.user_id', '=', 'users.id')
+
+        $results = Datatables::of(Anime::query()->with('genres')->get())
+            ->addColumn('genres', function ($row) {
+                $resultstr = array();
+                foreach ($row->genres as $result) {
+                    $resultstr[] = ucfirst($result->genre);
+                }
+                return implode(", ", $resultstr);
+                // return $row->genres->genre;
+            })
+            ->addColumn('musim', function ($row) {
+                return $row->musim . " " . $row->tahun;
+            })
+            ->addColumn('action', function ($row) {
+                $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editProduct">OK</a>';
+                $btn = $btn . ' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct">Delete</a>';
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+
         if (request()->ajax()) {
-            $results = Datatables::of(Anime::query())->make(true);
             return $results;
         }
+
         return view('admin.anime.index');
+
+        // return $results;
     }
 
     public function tambah()
@@ -59,7 +86,7 @@ class AnimeController extends Controller
             'sinopsis' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png'
         ]);
-        $id = $this->createSlug($request->get('judul'));
+        $id = $this->createSlug(substr($this->shorten_string($request->get('judul'), 5), 0, 20));
         $animes->user_post_id = Auth::user()->id;
         $animes->judul = $request->get('judul');
         $animes->tahun = $request->get('tahun');
@@ -96,7 +123,7 @@ class AnimeController extends Controller
 
         //simpan
 
-        return redirect('post')->with('success', 'Tambah anime berhasil');
+        return redirect('anime')->with('success', 'Tambah anime berhasil');
     }
     public function unggah($request, $fileName, $tempat)
     {
@@ -140,10 +167,9 @@ class AnimeController extends Controller
         $allSlugs = $this->getRelatedSlugs($slug, $id);
 
         // If we haven't used it before then we are all good.
-        if (!$allSlugs->contains('slug', $slug)) {
+        if (!$allSlugs->contains('id', $slug)) {
             return $slug;
         }
-
         // Just append numbers like a savage until we find not used.
         for ($i = 1; $i <= 10; $i++) {
             $newSlug = $slug . '-' . $i;
@@ -156,6 +182,21 @@ class AnimeController extends Controller
     }
     protected function getRelatedSlugs($slug)
     {
-        return Anime::select('id')->where('id', 'like', $slug . '%')->get();
+         return Anime::select('id')->where('id', 'like', $slug . '%')->get();
+    }
+
+    public function shorten_string($string, $wordsreturned)
+    {
+        $retval = $string;
+        $string = preg_replace('/(?<=\S,)(?=\S)/', ' ', $string);
+        $string = str_replace("\n", " ", $string);
+        $array = explode(" ", $string);
+        if (count($array) <= $wordsreturned) {
+            $retval = $string;
+        } else {
+            array_splice($array, $wordsreturned);
+            $retval = implode(" ", $array) . " ...";
+        }
+        return $retval;
     }
 }

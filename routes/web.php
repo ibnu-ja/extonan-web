@@ -19,6 +19,7 @@ Route::group(['domain' => 'admin.extonan-web.test', 'middleware' => 'admin'], fu
     Route::get('/anime', 'AnimeController@tampil');
     Route::get('/anime/tambah', 'AnimeController@tambah');
     Route::post('/anime/tambah', 'AnimeController@simpan');
+    Route::get('/{slug}', 'AnimeController@getRelatedSlugs');
 
 });
 

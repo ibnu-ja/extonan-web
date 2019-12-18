@@ -15,6 +15,21 @@
     table.dataTable thead .sorting_desc_disabled:after {
         font-family: "Font Awesome 5 Pro";
     }
+
+    table.table a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    table.table a:hover {
+        color: #0056b3;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+
+    table td {
+        font-weight: 400;
+    }
 </style>
 @endsection
 @section('judul', 'Tambah Anime')
@@ -22,12 +37,14 @@
 <section class="section mb-4">
     <div class="card">
         <div class="card-body">
-            <table id="dtMaterialDesignExample" class="table table-striped" cellspacing="0" width="100%">
+            <table id="data" class="table " cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <th>Judul</th>
-                        <th>Tahun</th>
+                        <th style="width: 40%">Judul</th>
+                        <th>Musim</th>
                         <th>Skor</th>
+                        <th>Genre</th>
+                        <th style="width: 20%">Aksi</th>
                     </tr>
                 </thead>
             </table>
@@ -43,27 +60,40 @@
 
 <script>
     $(function() {
-        $('#dtMaterialDesignExample').DataTable({
+        $('#data').DataTable({
             processing: true,
             serverSide: true,
             ajax: "{{ url('anime') }}",
             columns: [{
                     data: 'judul',
-                    name: 'judul'
+                    name: 'judul',
+                    render: function(data, type, row) {
+                        return "<a class='test' href='/anime/" + row.id + "'>" + row.judul + "</a>"
+                    }
                 },
                 {
-                    data: 'tahun',
-                    name: 'tahun'
+                    data: 'musim',
+                    name: 'musim'
                 },
                 {
                     data: 'skor',
                     name: 'skor'
-                }
+                },
+                {
+                    data: 'genres',
+                    name:  'genres'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                },
             ]
         });
     });
 
-    $('#dt-material-checkbox').dataTable({
+    $('#data-checkbox').dataTable({
 
         columnDefs: [{
             orderable: false,
@@ -76,23 +106,23 @@
         }
     });
 
-    $('#dtMaterialDesignExample_wrapper, #dt-material-checkbox_wrapper').find('label').each(function() {
+    $('#data_wrapper, #data-checkbox_wrapper').find('label').each(function() {
         $(this).parent().append($(this).children());
     });
-    $('#dtMaterialDesignExample_wrapper .dataTables_filter, #dt-material-checkbox_wrapper .dataTables_filter').find(
+    $('#data_wrapper .dataTables_filter, #data-checkbox_wrapper .dataTables_filter').find(
         'input').each(function() {
         $('input').attr("placeholder", "Search");
         $('input').removeClass('form-control-sm');
     });
-    $('#dtMaterialDesignExample_wrapper .dataTables_length, #dt-material-checkbox_wrapper .dataTables_length').addClass(
+    $('#data_wrapper .dataTables_length, #data-checkbox_wrapper .dataTables_length').addClass(
         'd-flex flex-row');
-    $('#dtMaterialDesignExample_wrapper .dataTables_filter, #dt-material-checkbox_wrapper .dataTables_filter').addClass(
+    $('#data_wrapper .dataTables_filter, #data-checkbox_wrapper .dataTables_filter').addClass(
         'md-form');
-    $('#dtMaterialDesignExample_wrapper select, #dt-material-checkbox_wrapper select').removeClass(
+    $('#data_wrapper select, #data-checkbox_wrapper select').removeClass(
         'custom-select custom-select-sm form-control form-control-sm');
-    $('#dtMaterialDesignExample_wrapper select, #dt-material-checkbox_wrapper select').addClass('mdb-select');
-    $('#dtMaterialDesignExample_wrapper .mdb-select, #dt-material-checkbox_wrapper .mdb-select').materialSelect();
-    $('#dtMaterialDesignExample_wrapper .dataTables_filte, #dt-material-checkbox_wrapper .dataTables_filterr').find(
+    $('#data_wrapper select, #data-checkbox_wrapper select').addClass('mdb-select');
+    $('#data_wrapper .mdb-select, #data-checkbox_wrapper .mdb-select').materialSelect();
+    $('#data_wrapper .dataTables_filte, #data-checkbox_wrapper .dataTables_filterr').find(
         'label').remove();
 </script>
 

@@ -28,10 +28,10 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                            <a href=" {{ url('/anime/tambah')}}" class="waves-effect">Tambah</a>
+                                <a href=" {{url('anime')}}" class="waves-effect">Indeks</a>
                             </li>
                             <li>
-                            <a href=" {{url('anime')}}" class="waves-effect">Indeks judul</a>
+                                <a href=" {{ url('/anime/tambah')}}" class="waves-effect">Tambah</a>
                             </li>
                         </ul>
                     </div>
@@ -62,7 +62,7 @@
                         <i class="w-fa fas fa-user"></i>Profil
                     </a>
                 </li>
-                
+
             </ul>
         </li>
         <!-- Side navigation links -->
