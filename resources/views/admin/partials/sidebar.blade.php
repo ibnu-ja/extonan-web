@@ -1,4 +1,4 @@
-<div id="slide-out" class="side-nav sn-bg-4 fixed">
+<div id="slide-out" class="side-nav fixed">
     <ul class="custom-scrollbar">
         <!-- Logo -->
         <li class="logo-sn waves-effect py-3">

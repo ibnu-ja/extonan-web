@@ -1,6 +1,5 @@
 @extends('atak.admin')
 @section('judul', 'Indeks - Anime')
-@section('konten')
 @section('style')
 <style>
     table.dataTable thead .sorting:before,
@@ -32,7 +31,7 @@
     }
 </style>
 @endsection
-@section('judul', 'Tambah Anime')
+@section('konten')
 <!-- Section: Inputs -->
 <section class="section mb-4">
     <div class="card">

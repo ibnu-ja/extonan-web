@@ -28,13 +28,8 @@ class AnimeController extends Controller
         $this->dimensions = [['1400', '450'], ['300', '425'], ['200', '300']];
     }
 
-    public function tampil()
+    public function index()
     {
-
-        //$animes = Anime::select('users.name', 'users.email', 'animes.id', 'animes.judul', 'animes.slug',
-        //'animes.jenis', 'animes.skor', 'animes.created_at', 'animes.updated_at')
-        //->with('genres')->with('episodes')->leftJoin('users', 'animes.user_id', '=', 'users.id')
-
         $results = Datatables::of(Anime::query()->with('genres')->get())
             ->addColumn('genres', function ($row) {
                 $resultstr = array();
@@ -125,6 +120,18 @@ class AnimeController extends Controller
 
         return redirect('anime')->with('success', 'Tambah anime berhasil');
     }
+
+    public function tampil($id)
+    {
+        $anime = Anime::with('gambar', 'genres')->findOrFail($id);
+        $resultstr = array();
+        foreach ($anime->genres as $result) {
+            $resultstr[] = ucfirst($result->genre);
+        }
+        $genres = implode(", ", $resultstr);
+        return view('admin.anime.tampil', compact('anime', 'genres'));
+    }
+
     public function unggah($request, $fileName, $tempat)
     {
 
@@ -182,7 +189,7 @@ class AnimeController extends Controller
     }
     protected function getRelatedSlugs($slug)
     {
-         return Anime::select('id')->where('id', 'like', $slug . '%')->get();
+        return Anime::select('id')->where('id', 'like', $slug . '%')->get();
     }
 
     public function shorten_string($string, $wordsreturned)
