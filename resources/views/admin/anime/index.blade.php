@@ -41,6 +41,7 @@
                 <thead>
                     <tr>
                         <th style="width: 40%">Judul</th>
+                        <th>Alt</th>
                         <th>Musim</th>
                         <th>Skor</th>
                         <th>Genre</th>
@@ -72,6 +73,12 @@
                     }
                 },
                 {
+                    data: 'judul_alt',
+                    name: 'judul_alt',
+                    searchable: true,
+                    visible: false
+                },
+                {
                     data: 'musim',
                     name: 'musim'
                 },
@@ -81,7 +88,7 @@
                 },
                 {
                     data: 'genres',
-                    name:  'genres'
+                    name: 'genres'
                 },
                 {
                     data: 'action',
