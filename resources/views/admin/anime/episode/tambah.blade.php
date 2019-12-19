@@ -11,7 +11,6 @@
                         <div class="card-title"><h5>Bidang Isian</h5></div>
                         <div class="card-text">
                             <div class="col">
-                                @csrf
                                 <div class="row">
                                     <div class="col">
                                         <div class="md-form">
@@ -88,9 +87,9 @@
                                     <div class="col mb-4">
                                         <div class="md-form">
                                             <i class="fas fa-i-cursor prefix"></i>
-                                            <textarea id="sinopsis" class="md-textarea form-control" name="sinopsis"
-                                                length="3200" rows="12"></textarea>
-                                            <label for="sinopsis">Sinopsis</label>
+                                            <textarea id="form7" class="md-textarea form-control" name="sinopsis"
+                                                length="320" rows="12"></textarea>
+                                            <label for="form7">Sinopsis</label>
                                         </div>
                                     </div>
                                 </div>
