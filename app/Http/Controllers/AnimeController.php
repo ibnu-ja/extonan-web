@@ -90,8 +90,7 @@ class AnimeController extends Controller
         $animes->skor = $request->get('skor');
         $animes->musim = $request->get('musim');
         $animes->id = $id;
-
-
+        
         //jenis
         $jenis = implode(',', $request->get('jenis'));
         $animes->jenis = $jenis;

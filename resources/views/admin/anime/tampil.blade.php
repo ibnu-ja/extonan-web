@@ -25,6 +25,10 @@
                     <form id="episodeForm" name="episodeForm" class="form-horizontal">
                         <input type="hidden" name="episode_id" id="episode_id">
                         <input type="hidden" name="anime_id" value="{{ $anime->id }}" id="anime_id">
+                        <input type="hidden" name="sub_id" id="sub_id">
+                        <input type="hidden" name="480p_id" id="480p_id">
+                        <input type="hidden" name="720p_id" id="720p_id">
+                        <input type="hidden" name="1080p_id" id="1080p_id">
                         <div class="md-form mb-5">
                             <i class="far fa-edit prefix prefix grey-text"></i>
                             <input type="text" id="episode" name="episode" class="form-control">
@@ -39,17 +43,17 @@
                         </div>
                         <div class="md-form mb-5">
                             <i class="far fa-link prefix prefix grey-text"></i>
-                            <textarea id="480p" class="md-textarea form-control" name="480p" rows="4"></textarea>
+                            <textarea id="480p" class="md-textarea form-control" name="res_480p" rows="4"></textarea>
                             <label for="480p">480p</label>
                         </div>
                         <div class="md-form mb-5">
                             <i class="far fa-link prefix prefix grey-text"></i>
-                            <textarea id="720p" class="md-textarea form-control" name="720p" rows="4"></textarea>
+                            <textarea id="720p" class="md-textarea form-control" name="res_720p" rows="4"></textarea>
                             <label for="720p">720p</label>
                         </div>
                         <div class="md-form mb-5">
                             <i class="far fa-link prefix prefix grey-text"></i>
-                            <textarea id="1080p" class="md-textarea form-control" name="1080p" rows="4"></textarea>
+                            <textarea id="1080p" class="md-textarea form-control" name="res_1080p" rows="4"></textarea>
                             <label for="1080p">1080p</label>
                         </div>
                     </form>
@@ -135,6 +139,10 @@
         });
         $('#ajaxModal').click(function() {
             $('#episode_id').val('');
+            $('#sub_id').val('');
+            $('#480p_id').val('');
+            $('#720p_id').val('');
+            $('#1080p_id').val('');
             $('#modelHeading').html("Tambah Episode Baru");
             $('#ajaxModal').modal('show');
         });

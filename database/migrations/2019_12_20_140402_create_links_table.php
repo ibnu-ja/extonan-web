@@ -15,6 +15,10 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('link');
+            $table->string('res');
+            $table->unsignedBigInteger('episode_id');
+            $table->foreign('episode_id')->references('id')->on('episodes')->onDelete('cascade');
             $table->timestamps();
         });
     }
