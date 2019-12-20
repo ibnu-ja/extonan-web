@@ -20,7 +20,7 @@
       @elseif (\Request::is('anime/tambah'))
       @elseif (\Request::is('anime/*'))
       <li class="nav-item">
-        <a class="nav-link waves-effect" data-toggle="modal" data-target="#tambahAnime"><i class="far fa-plus-square"></i> <span class="clearfix d-none d-sm-inline-block">Tambah Episode</span></a>
+        <a class="nav-link waves-effect" data-toggle="modal" data-target="#ajaxModal"><i class="far fa-plus-square"></i> <span class="clearfix d-none d-sm-inline-block">Tambah Episode</span></a>
       </li>
       @endif
       <li class="nav-item dropdown">

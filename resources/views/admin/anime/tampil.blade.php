@@ -11,46 +11,51 @@
 @section('konten')
 <!-- Section: Inputs -->
 <section class="section mb-4">
-    <div class="modal fade" id="tambahAnime" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="ajaxModal" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Tambah Episode</h4>
+                    <h4 class="modal-title w-100 font-weight-bold" id="modelHeading"></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
                 <div class="modal-body mx-3">
-                    <div class="md-form mb-5">
-                        <i class="far fa-edit prefix prefix grey-text"></i>
-                        <input type="text" id="episode" name="episode" class="form-control validate">
-                        <label data-error="wrong" data-success="right" for="episode">Episode</label>
-                    </div>
-                    <small class="text-muted">Format: <code>Nama Hosting,URL</code>. Gunakan baris baru untuk tiap link.</small>
-                    <div class="md-form mb-5">
-                        <i class="far fa-link prefix prefix grey-text"></i>
-                        <textarea id="sub" class="md-textarea form-control validate" name="sub" rows="4"></textarea>
-                        <label data-error="wrong" data-success="right" for="sub">Sub</label>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="far fa-link prefix prefix grey-text"></i>
-                        <textarea id="480p" class="md-textarea form-control validate" name="480p" rows="4"></textarea>
-                        <label data-error="wrong" data-success="right" for="480p">480p</label>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="far fa-link prefix prefix grey-text"></i>
-                        <textarea id="720p" class="md-textarea form-control validate" name="720p" rows="4"></textarea>
-                        <label data-error="wrong" data-success="right" for="720p">720p</label>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="far fa-link prefix prefix grey-text"></i>
-                        <textarea id="1080p" class="md-textarea form-control validate" name="1080p" rows="4"></textarea>
-                        <label data-error="wrong" data-success="right" for="1080p">1080p</label>
-                    </div>
+                    <form id="episodeForm" name="episodeForm" class="form-horizontal">
+                        <input type="hidden" name="episode_id" id="episode_id">
+                        <input type="hidden" name="anime_id" value="{{ $anime->id }}" id="anime_id">
+                        <div class="md-form mb-5">
+                            <i class="far fa-edit prefix prefix grey-text"></i>
+                            <input type="text" id="episode" name="episode" class="form-control">
+                            <label for="episode">Episode</label>
+                        </div>
+                        <small class="text-muted">Format: <code>Nama Hosting,URL</code>. Gunakan baris baru untuk tiap
+                            link.</small>
+                        <div class="md-form mb-5">
+                            <i class="far fa-link prefix prefix grey-text"></i>
+                            <textarea id="sub" class="md-textarea form-control" name="sub" rows="4"></textarea>
+                            <label for="sub">Sub</label>
+                        </div>
+                        <div class="md-form mb-5">
+                            <i class="far fa-link prefix prefix grey-text"></i>
+                            <textarea id="480p" class="md-textarea form-control" name="480p" rows="4"></textarea>
+                            <label for="480p">480p</label>
+                        </div>
+                        <div class="md-form mb-5">
+                            <i class="far fa-link prefix prefix grey-text"></i>
+                            <textarea id="720p" class="md-textarea form-control" name="720p" rows="4"></textarea>
+                            <label for="720p">720p</label>
+                        </div>
+                        <div class="md-form mb-5">
+                            <i class="far fa-link prefix prefix grey-text"></i>
+                            <textarea id="1080p" class="md-textarea form-control" name="1080p" rows="4"></textarea>
+                            <label for="1080p">1080p</label>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button type="submit" class="btn btn-default">Kirim</button>
+                    <button type="submit" id="kirim" class="btn btn-default">Kirim</button>
                 </div>
             </div>
         </div>
@@ -121,5 +126,39 @@
 @section('script')
 <script src="/js/mdb-file-upload.min.js"></script>
 <script>
+    $(function() {
+        $('#ajaxModal').appendTo("body") 
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('#ajaxModal').click(function() {
+            $('#episode_id').val('');
+            $('#modelHeading').html("Tambah Episode Baru");
+            $('#ajaxModal').modal('show');
+        });
+
+        $('#kirim').click(function(e) {
+            e.preventDefault();
+            $(this).html('Sending..');
+            $.ajax({
+                data: $('#episodeForm').serialize(),
+                url: "{{ route('tambahEp', ['id' => $anime->id]) }}",
+                type: "POST",
+                dataType: 'json',
+                success: function(data) {
+                    $('#episodeForm').trigger("reset");
+                    $('#ajaxModal').modal('hide');
+                    $('.modal-backdrop').remove();
+                },
+                error: function(data) {
+                    console.log('Error:', data);
+                    $('#kirim').html('Save Changes');
+                }
+            });
+        });
+
+    });
 </script>
 @endsection

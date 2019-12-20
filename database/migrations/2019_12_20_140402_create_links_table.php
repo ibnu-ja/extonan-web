@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEpisodesTable extends Migration
+class CreateLinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateEpisodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('episodes', function (Blueprint $table) {
+        Schema::create('links', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('episode');
-            $table->string('anime_id');
-            $table->foreign('anime_id')->references('id')->on('animes')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateEpisodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('episodes');
+        Schema::dropIfExists('links');
     }
 }

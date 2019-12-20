@@ -14,9 +14,11 @@ class Anime extends Model
     public function genres(){
         return $this->hasMany('App\Genre');
     }
-
     public function gambar(){
         return $this->hasOne('App\Gambar');
+    }
+    public function episode(){
+        return $this->hasOne('App\Episode');
     }
     
 }
