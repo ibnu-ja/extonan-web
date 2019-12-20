@@ -85,7 +85,7 @@ class AnimeController extends Controller
         $animes->user_post_id = Auth::user()->id;
         $animes->judul = $request->get('judul');
         $animes->tahun = $request->get('tahun');
-        $animes->judul_alt = preg_replace('#\s+#', ',', trim($request->get('judul_alt')));
+        $animes->judul_alt = $request->get('judul_alt');
         $animes->sinopsis = $request->get('sinopsis');
         $animes->skor = $request->get('skor');
         $animes->musim = $request->get('musim');

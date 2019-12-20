@@ -87,7 +87,7 @@
                             <div class="card-text">
                                 <div><span class="info">Judul Alt: </span>
                                     @php
-                                    $juduls = explode(",", $anime->judul_alt);
+                                    $juduls = preg_split('/\r\n|\r|\n/', $anime->judul_alt);
                                     @endphp
                                     @foreach ($juduls as $judul)
                                     @if ($loop->last)

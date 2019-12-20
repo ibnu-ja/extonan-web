@@ -72,15 +72,15 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="md-form">
+                                            <input type="number" id="tahun" class="form-control" name="tahun" min="1800">
+                                            <label for="tahun">Tahun</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="md-form">
                                             <input type="number" id="tahun" class="form-control" name="skor" step="0.01"
                                                 min="0" max="10">
                                             <label for="skor">Skor</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="md-form">
-                                            <input type="number" id="tahun" class="form-control" name="tahun" min="1800">
-                                            <label for="tahun">Tahun</label>
                                         </div>
                                     </div>
                                 </div>
