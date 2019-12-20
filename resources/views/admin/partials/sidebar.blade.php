@@ -10,13 +10,13 @@
         <li>
             <form class="search-form" role="search">
                 <div class="md-form mt-0 waves-light">
-                    <input type="text" class="form-control py-2" placeholder="Search">
+                    <input type="text" id="navbarCari" class="form-control py-2" placeholder="Search">
                 </div>
             </form>
         </li>
         <!-- Side navigation links -->
         <li>
-            <ul class="collapsible collapsible-accordion">
+            <ul class="collapsible collapsible-accordion" id="menuSamping">
                 <li>
                     <a href="#" class="collapsible-header waves-effect">
                         <i class="fas fa-chart-line"></i>Informasi</a>
