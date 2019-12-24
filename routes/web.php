@@ -27,5 +27,5 @@ Route::group(['domain' => 'admin.extonan-web.test', 'middleware' => 'admin'], fu
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
