@@ -21,107 +21,20 @@
 
 //mdb-pro
 @import '../mdb-pro/scss/mdb';
+@import '../../node_modules/slick-carousel/slick/slick';
+@import '../../node_modules/slick-carousel/slick/slick-theme';
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
 
-
-.lp {
-    .view {
-        background-image   : url('https://mdbootstrap.com/img/Others/landings/concert.jpg');
-        background-repeat  : no-repeat;
-        background-size    : cover;
-        background-position: center center;
-    }
-
-    .navbar {
-        background-color: theme-color("primary");
-        box-shadow      : $z-depth-1;
-
-        &:not(.top-nav-collapse) {
-            background: transparent;
-
-            @media (min-width: 769px) {
-                box-shadow: none;
-            }
-
-            @media (max-width: 768px) {
-                background: theme-color("primary");
-            }
-
-            @media (min-width: 800px) and (max-width: 850px) {
-                background: theme-color("primary");
-            }
-        }
-    }
-
-    .btn,
-    .btn-floating {
-        transition: all .3s ease-in-out;
-    }
-
-    .btn {
-        &.btn-pink-blue {
-            background-color: #ec1368;
-            color           : #fff;
-
-            &:hover,
-            &:focus,
-            &.active {
-                background-color: #33b5e5;
-            }
-        }
-
-        &.btn-white-red {
-            background-color: rgba(255, 255, 255, 0.33);
-
-            &:hover,
-            &:focus,
-            &.active {
-                background-color: #cd201f;
-            }
-        }
-    }
-
-    .btn-floating {
-        &.btn-blue-pink {
-            background-color: #33b5e5;
-
-            &:hover,
-            &:focus,
-            &.active {
-                background-color: #ec1368;
-            }
-        }
-    }
-
-    .page-footer {
-        background-color: #23242a;
-    }
-
-    .grey-background {
-        background-color: #d9dee4;
-    }
-
-    .contact-section {
-        .md-form {
-
-            input[type="email"]:focus:not([readonly]),
-            input[type="text"]:focus:not([readonly]),
-            input[type="password"]:focus:not([readonly]),
-            textarea.md-textarea:focus:not([readonly]) {
-                border-color: #e91e63;
-                box-shadow  : 0 1px 0 0 #e91e63;
-
-                &+label {
-                    color: #fff;
-                }
-            }
-
-            label {
-                color: #fff;
-            }
-        }
-    }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav,
+.heading {
+  font-family: 'Nunito', sans-serif;
 }
-
 
 // //css
 // @import '../mdb-pro/css/bootstrap.css';

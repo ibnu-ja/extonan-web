@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Nunito&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -57700,101 +57700,292 @@ ul.stepper .md-form .validate {
   content: "%";
 }
 
-.lp .view {
-  background-image: url("https://mdbootstrap.com/img/Others/landings/concert.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+/* Slider */
+
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.lp .navbar {
-  background-color: #007bff;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
-.lp .navbar:not(.top-nav-collapse) {
+.slick-list:focus {
+  outline: none;
+}
+
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slick-track:before,
+.slick-track:after {
+  content: "";
+  display: table;
+}
+
+.slick-track:after {
+  clear: both;
+}
+
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+
+[dir=rtl] .slick-slide {
+  float: right;
+}
+
+.slick-slide img {
+  display: block;
+}
+
+.slick-slide.slick-loading img {
+  display: none;
+}
+
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+/* Slider */
+
+.slick-loading .slick-list {
+  background: #fff url(/images/vendor/slick-carousel/slick/ajax-loader.gif?c5cd7f5300576ab4c88202b42f6ded62) center center no-repeat;
+}
+
+/* Icons */
+
+@font-face {
+  font-family: "slick";
+  src: url(/fonts/vendor/slick-carousel/slick/slick.eot?ced611daf7709cc778da928fec876475);
+  src: url(/fonts/vendor/slick-carousel/slick/slick.eot?ced611daf7709cc778da928fec876475) format("embedded-opentype"), url(/fonts/vendor/slick-carousel/slick/slick.woff?b7c9e1e479de3b53f1e4e30ebac2403a) format("woff"), url(/fonts/vendor/slick-carousel/slick/slick.ttf?d41f55a78e6f49a5512878df1737e58a) format("truetype"), url(/fonts/vendor/slick-carousel/slick/slick.svg?f97e3bbf73254b0112091d0192f17aec) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
   background: transparent;
+  color: transparent;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0;
+  border: none;
+  outline: none;
 }
 
-@media (min-width: 769px) {
-  .lp .navbar:not(.top-nav-collapse) {
-    box-shadow: none;
-  }
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  outline: none;
+  background: transparent;
+  color: transparent;
 }
 
-@media (max-width: 768px) {
-  .lp .navbar:not(.top-nav-collapse) {
-    background: #007bff;
-  }
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1;
 }
 
-@media (min-width: 800px) and (max-width: 850px) {
-  .lp .navbar:not(.top-nav-collapse) {
-    background: #007bff;
-  }
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  opacity: 0.25;
 }
 
-.lp .btn,
-.lp .btn-floating {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  opacity: 0.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.lp .btn.btn-pink-blue {
-  background-color: #ec1368;
-  color: #fff;
+.slick-prev {
+  left: -25px;
 }
 
-.lp .btn.btn-pink-blue:hover,
-.lp .btn.btn-pink-blue:focus,
-.lp .btn.btn-pink-blue.active {
-  background-color: #33b5e5;
+[dir=rtl] .slick-prev {
+  left: auto;
+  right: -25px;
 }
 
-.lp .btn.btn-white-red {
-  background-color: rgba(255, 255, 255, 0.33);
+.slick-prev:before {
+  content: "\2190";
 }
 
-.lp .btn.btn-white-red:hover,
-.lp .btn.btn-white-red:focus,
-.lp .btn.btn-white-red.active {
-  background-color: #cd201f;
+[dir=rtl] .slick-prev:before {
+  content: "\2192";
 }
 
-.lp .btn-floating.btn-blue-pink {
-  background-color: #33b5e5;
+.slick-next {
+  right: -25px;
 }
 
-.lp .btn-floating.btn-blue-pink:hover,
-.lp .btn-floating.btn-blue-pink:focus,
-.lp .btn-floating.btn-blue-pink.active {
-  background-color: #ec1368;
+[dir=rtl] .slick-next {
+  left: -25px;
+  right: auto;
 }
 
-.lp .page-footer {
-  background-color: #23242a;
+.slick-next:before {
+  content: "\2192";
 }
 
-.lp .grey-background {
-  background-color: #d9dee4;
+[dir=rtl] .slick-next:before {
+  content: "\2190";
 }
 
-.lp .contact-section .md-form input[type=email]:focus:not([readonly]),
-.lp .contact-section .md-form input[type=text]:focus:not([readonly]),
-.lp .contact-section .md-form input[type=password]:focus:not([readonly]),
-.lp .contact-section .md-form textarea.md-textarea:focus:not([readonly]) {
-  border-color: #e91e63;
-  box-shadow: 0 1px 0 0 #e91e63;
+/* Dots */
+
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
 }
 
-.lp .contact-section .md-form input[type=email]:focus:not([readonly]) + label,
-.lp .contact-section .md-form input[type=text]:focus:not([readonly]) + label,
-.lp .contact-section .md-form input[type=password]:focus:not([readonly]) + label,
-.lp .contact-section .md-form textarea.md-textarea:focus:not([readonly]) + label {
-  color: #fff;
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
-.lp .contact-section .md-form label {
-  color: #fff;
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.slick-dots li button {
+  border: 0;
+  background: transparent;
+  display: block;
+  height: 20px;
+  width: 20px;
+  outline: none;
+  line-height: 0px;
+  font-size: 0px;
+  color: transparent;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+  outline: none;
+}
+
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+  opacity: 1;
+}
+
+.slick-dots li button:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "\2022";
+  width: 20px;
+  height: 20px;
+  font-family: "slick";
+  font-size: 6px;
+  line-height: 20px;
+  text-align: center;
+  color: black;
+  opacity: 0.25;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before {
+  color: black;
+  opacity: 0.75;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav,
+.heading {
+  font-family: "Nunito", sans-serif;
 }
 

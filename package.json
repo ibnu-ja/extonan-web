@@ -22,5 +22,9 @@
         "sass-loader": "7.*",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "ellipsis.js": "^0.1.3",
+        "slick-carousel": "^1.8.1"
     }
 }

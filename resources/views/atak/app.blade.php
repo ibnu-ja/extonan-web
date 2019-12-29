@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
   <style>
     .fixed-sn .double-nav, .fixed-sn main, .fixed-sn footer {
     padding-left: initial;
@@ -18,7 +19,7 @@
   </style>
   @yield('style')
 </head>
-<body class="fixed-sn lp homepage-v3">
+<body class="">
   <!-- Navigation -->
   <header>
     
@@ -142,35 +143,18 @@
     </div>
   </footer>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
   </script>
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="{{ asset('js/mdb.min.js') }}"></script>
-  <script>
-    
-    // Animation init
+  <script src="{{ asset('js/slick.min.js') }}"></script>
+  <script src="{{ asset('js/ellipsis.js') }}"></script>
+  <script type="text/javascript">
+        // Animation init
     new WOW().init();
 
-    // MDB Lightbox Init
-    $(function () {
-      $("#mdb-lightbox-ui").load("../mdb-addons/mdb-lightbox-ui.html");
-    });
-
-    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function() {
-      var next = $(this).next();
-      if (!next.length) {
-        next = $(this).siblings(':first');
-      }
-      next.children(':first-child').clone().appendTo($(this));
-      for (var i = 0; i < 4; i++) {
-        next = next.next();
-        if (!next.length) {
-          next = $(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
-      }
-    });
   </script>
   @yield('script')
 </body>
