@@ -1,6 +1,13 @@
 @extends('atak.app')
 @section('style')
 <style>
+    html,
+    body,
+    header,
+    .view.jarallax {
+        min-height: 250px;
+    }
+
     .card-body .rilisan:hover {
         overflow: visible;
         white-space: normal;
@@ -10,65 +17,42 @@
     }
 
     .carousel-inner {
-        width: 100%;
+        width: 90%;
         margin: auto;
-        z-index: 2;
         /* max-height: 400px; */
     }
 
     .controls-top {
-
-        height: 100%;
-        width: 100%;
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        /* IE */
-        -moz-transform: translateY(-50%);
-        /* Firefox */
-        -webkit-transform: translateY(-50%);
-        /* Safari and Chrome */
-        -o-transform: translateY(-50%);
-    }
-
-    .carousel-item.active figure {
-        margin-bottom: 0;
-    }
-
-    .controls-top a {
-        width: 60px;
-
-    }
-
-    .controls-top a:hover {
-        background: #00000080;
-    }
-
-    .controls-top i {
-        margin: 0;
-        position: absolute;
-        top: 50%;
         transform: translate(-50%, -50%);
+        left: 50%;
+        top: 37%;
+        width: 90%;
+        z-index: 1;
     }
 
+    @media (max-width: 900px) {
+        .controls-top {
+            width: 85%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .controls-top {
+            width: 70%;
+        }
+    }
 
     .right {
-
-        height: 100%;
         position: absolute;
-        right: 0%;
+        top: 50%;
+        left: 100%;
     }
 
     .left {
-
-        height: 100%;
         position: absolute;
-        left: 0%;
-    }
-
-    body {
-        background-color: #eee;
+        top: 50%;
+        right: 100%;
     }
 </style>
 @endsection
@@ -76,9 +60,9 @@
 @parent
 <!-- Main Navigation -->
 <header>
+
     <!-- Navbar -->
-    aaa
-    <nav class="navbar navbar-expand-lg navbar-dark default-color ">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -96,12 +80,12 @@
                     </li>
                     @endif
                     @endauth
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('list') }}">Daftar Anime</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('genre') }}" data-offset="100">Daftar Genre</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('list') }}">Daftar Anime</a>
+                </li>                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('genre') }}" data-offset="100">Daftar Genre</a>
+                </li>          
                 </ul>
                 <!-- Social Icons -->
                 <ul class="navbar-nav nav-flex-icons">
@@ -119,74 +103,87 @@
         </div>
     </nav>
 
+    <!-- Intro Section -->
+    <div id="home" class="view jarallax" data-jarallax='{"speed": 0.2}'>
+        <div class="mask rgba-black-strong">
+            <div class="container h-100 d-flex justify-content-center align-items-center pt-5">
+                <div class="row smooth-scroll">
+                    <div class="col-md-12">
+                        <div class="text-center text-white">
+                            <div class="wow fadeInDown" data-wow-delay=".2s">
+                                <h1>{{ config('app.name', 'Laravel') }}</h1>
+                                <span class="subheading">Akhirnya bisa revive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </header>
 <!-- Main Navigation -->
 @endsection
 @section('konten')
 <div class="container-fluid">
     <div class="row">
-        <div class="card">
-            <div class="col card-body">
-                <h4 class="font-weight-bold"><strong>LATESTS NEWS</strong></h4>
-                <hr class="red title-hr">
-                <section>
-                    <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2 m-2" data-ride="carousel">
-                        <!--Controls-->
-                        <div class="controls-top d-flex align-items-stretch">
-                            <a class="left " href="#carousel-example-multi" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-                            <a class=" right " href="#carousel-example-multi" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+        <div class="col">
+            <section>
+                <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2 m-2" data-ride="carousel">
+
+                    <!--Controls-->
+                    <div class="controls-top">
+                        <a class="btn-floating left" href="#carousel-example-multi" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                        <a class="btn-floating right" href="#carousel-example-multi" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <!--/.Controls-->
+
+                    <div class="carousel-inner v-2" role="listbox">
+                        <div class="carousel-item active">
+                            <figure class="col-xl-2 col-md-3 col-6">
+                                <a href="http://placehold.it/300x400/9cc2ff/?text=Digital.com" data-size="300x400">
+                                    <img src="http://placehold.it/300x400/9cc2ff/?text=Digital.com" class="img-fluid">
+                                </a>
+                            </figure>
                         </div>
-                        <!--/.Controls-->
-
-                        <div class="carousel-inner v-2" role="listbox">
-                            <div class="carousel-item active">
-                                <figure class="col-xl-2 col-md-3 col-6">
-                                    <a href="http://placehold.it/300x400/9cc2ff/?text=Digital.com" data-size="300x400">
-                                        <img src="http://placehold.it/300x400/9cc2ff/?text=Digital.com" class="img-fluid">
-                                    </a>
-                                </figure>
-                            </div>
-                            <div class="carousel-item">
-                                <figure class="col-xl-2 col-md-3 col-6">
-                                    <a href="http://placehold.it/300x400/9cc2ff/?text=mum.com" data-size="300x400">
-                                        <img src="http://placehold.it/300x400/9cc2ff/?text=mum.com" class="img-fluid">
-                                    </a>
-                                </figure>
-                            </div>
-                            <div class="carousel-item">
-                                <figure class="col-xl-2 col-md-3 col-6">
-                                    <a href="http://placehold.it/300x400/9cc2ff/?text=mumaa.com" data-size="300x400">
-                                        <img src="http://placehold.it/300x400/9cc2ff/?text=mumaa.com" class="img-fluid">
-                                    </a>
-                                </figure>
-                            </div>
-                            <div class="carousel-item">
-                                <figure class="col-xl-2 col-md-3 col-6">
-                                    <a href="http://placehold.it/300x400/9cc2ff/?text=a.com" data-size="300x400">
-                                        <img src="http://placehold.it/300x400/9cc2ff/?text=a.com" class="img-fluid">
-                                    </a>
-                                </figure>
-                            </div>
-                            <div class="carousel-item">
-                                <figure class="col-xl-2 col-md-3 col-6">
-                                    <a href="http://placehold.it/300x400/9cc2ff/?text=b.com" data-size="300x400">
-                                        <img src="http://placehold.it/300x400/9cc2ff/?text=b.com" class="img-fluid">
-                                    </a>
-                                </figure>
-                            </div>
-                            <div class="carousel-item">
-                                <figure class="col-xl-2 col-md-3 col-6">
-                                    <a href="http://placehold.it/300x400/9cc2ff/?text=Dicgital.com" data-size="300x400">
-                                        <img src="http://placehold.it/300x400/9cc2ff/?text=Dicgital.com" class="img-fluid">
-                                    </a>
-                                </figure>
-                            </div>
-
-
+                        <div class="carousel-item">
+                            <figure class="col-xl-2 col-md-3 col-6">
+                                <a href="http://placehold.it/300x400/9cc2ff/?text=mum.com" data-size="300x400">
+                                    <img src="http://placehold.it/300x400/9cc2ff/?text=mum.com" class="img-fluid">
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="col-xl-2 col-md-3 col-6">
+                                <a href="http://placehold.it/300x400/9cc2ff/?text=mumaa.com" data-size="300x400">
+                                    <img src="http://placehold.it/300x400/9cc2ff/?text=mumaa.com" class="img-fluid">
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="col-xl-2 col-md-3 col-6">
+                                <a href="http://placehold.it/300x400/9cc2ff/?text=a.com" data-size="300x400">
+                                    <img src="http://placehold.it/300x400/9cc2ff/?text=a.com" class="img-fluid">
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="col-xl-2 col-md-3 col-6">
+                                <a href="http://placehold.it/300x400/9cc2ff/?text=b.com" data-size="300x400">
+                                    <img src="http://placehold.it/300x400/9cc2ff/?text=b.com" class="img-fluid">
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="col-xl-2 col-md-3 col-6">
+                                <a href="http://placehold.it/300x400/9cc2ff/?text=Dicgital.com" data-size="300x400">
+                                    <img src="http://placehold.it/300x400/9cc2ff/?text=Dicgital.com" class="img-fluid">
+                                </a>
+                            </figure>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </div>
     </div>
     <!-- Magazine -->
@@ -219,6 +216,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -243,6 +248,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -267,6 +280,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -291,6 +312,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -315,6 +344,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -339,6 +376,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -363,6 +408,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -387,6 +440,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -411,6 +472,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -435,6 +504,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -459,6 +536,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -483,6 +568,14 @@
                                     Lorem ipsum loremmm sdsds asdasd
                                     <h6>
                             </div>
+
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!-- Card -->
                     </div>
@@ -683,11 +776,6 @@
 @endsection
 @section('script')
 <script>
-    $('.controls-top a').click(function() {
-        $(this).removeClass('waves-effect waves-light');
-    });
-    $('.controls-top a').hover(function() {
-        $(this).toggleClass("text-light");
-    });
+
 </script>
 @endsection

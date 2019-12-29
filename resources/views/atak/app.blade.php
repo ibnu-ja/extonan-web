@@ -18,7 +18,7 @@
   </style>
   @yield('style')
 </head>
-<body class="fixed-sn">
+<body class="fixed-sn lp homepage-v3">
   <!-- Navigation -->
   <header>
     
