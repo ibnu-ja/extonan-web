@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+<nav class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav white-skin navy-blue-skin" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -47,7 +47,11 @@
                         </form>
                     </div>
                 </li>
-                @endauth   
+                @endauth
+
+                <li class="nav-item">
+                    <a class="nav-link p-0" href="https://www.facebook.com/TonanEX"><ion-icon name="logo-facebook" size="large"></ion-icon></a>
+                </li>    
             </ul>
         </div>
     </div>

@@ -19,7 +19,7 @@
   </style>
   @yield('style')
 </head>
-<body class="">
+<body class="light-blue-skin bg">
   <!-- Navigation -->
   <header>
     
