@@ -62,14 +62,15 @@
     $(".button-collapse").sideNav();
     new WOW().init();
 
-    $(function() {
-      $('#navbarCari').keyup(function() {
-        var searchText = $(this).val();
-        $('#menuSamping > li').each(function() {
-          var currentLiText = $(this).text(),
-            showCurrentLi = currentLiText.indexOf(searchText) !== -1;
-          $(this).toggle(showCurrentLi);
-        });
+    $(document).ready(function() {
+      $("#navbarCari").on("keyup", function() {
+        if (this.value.length > 0) {
+          $("#menuSamping > li").hide().filter(function() {
+            return $(this).text().toLowerCase().indexOf($("#search").val().toLowerCase()) != -1;
+          }).show();
+        } else {
+          $("#menuSamping > li").show();
+        }
       });
     });
   </script>

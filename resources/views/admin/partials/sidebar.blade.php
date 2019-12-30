@@ -3,7 +3,7 @@
         <!-- Logo -->
         <li class="logo-sn waves-effect py-3">
             <div class="text-center">
-                <a href="#" class="pl-0"><img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"></a>
+                <a href="#" class="pl-0 white-text spacing"><img src=" {{ asset('images/tonan-inv.png') }} " width="50px"> ADMIN <EX></EX>TONAN</a>
             </div>
         </li>
         <!-- Search Form -->
