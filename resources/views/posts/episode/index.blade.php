@@ -25,6 +25,7 @@
                                 <td class="w-5">ID</td>
                                 <td>Episode</td>
                                 <td>Link</td>
+                                <td>Link Iklan</td>
                                 <td>Res</td>
                                 <td colspan="2">Action</td>
                         </tr>
@@ -37,6 +38,19 @@
                         <tr>
                                 <td rowspan="{{ count($episode->links) }}">{{$episode->id}}</td>
                                 <td rowspan="{{ count($episode->links) }}">{{$episode->episode}}</td>
+                                <td>
+                                        @foreach(explode('|',$aa->link_org) as $linkkkkk)
+                                        @php
+                                        $asli = explode(',', $linkkkkk)
+                                        @endphp
+                                        <a href="{{ $asli[1] }}">{{ $asli[0] }}</a>
+                                        @if($loop->last)
+                                        @else
+                                        |
+                                        @endif
+                                        @endforeach
+
+                                </td>
                                 <td>
                                         @foreach(explode('|',$aa->link) as $linkkkkk)
                                         @php
@@ -57,6 +71,18 @@
                         @else
                         <tr>
                                 <td>
+                                        @foreach(explode('|',$aa->link_org) as $linkkkkk)
+                                        @php
+                                        $asli = explode(',', $linkkkkk)
+                                        @endphp
+                                        <a href="{{ $asli[1] }}"> {{ $asli[0] }} </a>
+                                        @if($loop->last)
+                                        @else
+                                        |
+                                        @endif
+                                        @endforeach
+                                </td>
+                                <td>
                                         @foreach(explode('|',$aa->link) as $linkkkkk)
                                         @php
                                         $asli = explode(',', $linkkkkk)
@@ -66,7 +92,8 @@
                                         @else
                                         |
                                         @endif
-                                        @endforeach</td>
+                                        @endforeach
+                                </td>
                                 <td>{{$aa->res}}</td>
                         </tr>
                         @endif

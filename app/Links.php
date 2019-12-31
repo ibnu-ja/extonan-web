@@ -8,7 +8,7 @@ use App\Episodes;
 class Links extends Model
 {
     protected $fillable = [
-        'link', 'episode_id', 'res'
+        'link', 'link_org', 'episode_id', 'res'
     ];
     public function episodes(){
     	return $this->belongsTo(Episodes::class);

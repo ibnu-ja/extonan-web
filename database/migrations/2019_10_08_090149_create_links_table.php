@@ -15,6 +15,7 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('link_org')->nullable();
             $table->string('link')->nullable();
             $table->string('res')->nullable();
             $table->integer('episodes_id')->unsigned();

@@ -24,7 +24,7 @@
                             <input type="text" class="form-control" 
                             @foreach ($links as $l)
                             @if($l->res == 'sub')
-                            value="{{ $l->link}}"
+                            value="{{ $l->link_org}}"
                             @endif
                             @endforeach
                             name="sub" />
@@ -34,7 +34,7 @@
                             <input type="text" class="form-control" 
                             @foreach ($links as $l)
                             @if($l->res == '480p')
-                            value="{{ $l->link}}"
+                            value="{{ $l->link_org}}"
                             @endif
                             @endforeach
                             name="480p" />
@@ -44,7 +44,7 @@
                             <input type="text" class="form-control"
                             @foreach ($links as $l)
                             @if($l->res == '720p')
-                            value="{{ $l->link}}"
+                            value="{{ $l->link_org}}"
                             @endif
                             @endforeach
                             name="720p" />
@@ -54,7 +54,7 @@
                             <input type="text" class="form-control"
                             @foreach ($links as $l)
                             @if($l->res == '1080p')
-                            value="{{ $l->link}}"
+                            value="{{ $l->link_org}}"
                             @endif
                             @endforeach name="1080p" />
                         </div>
