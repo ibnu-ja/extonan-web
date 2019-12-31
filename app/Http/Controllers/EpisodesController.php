@@ -34,17 +34,12 @@ class EpisodesController extends Controller
     public function simpan($slug, Request $request)
     {
         $episodes = new Episodes();
-
-
         $this->validate($request, [
             'episode' => 'required'
         ]);
-
-
         $episodes->simpan([
             'episode' => $request->get('episode')
         ], $slug);
-
         $episodes->simpan($request->all(), $slug);
         if ($request->get('1080p')) $episodes->links()->create(['link' => $request->get('1080p'), 'res' => '1080p']);
         if ($request->get('720p')) $episodes->links()->create(['link' => $request->get('720p'), 'res' => '720p']);
