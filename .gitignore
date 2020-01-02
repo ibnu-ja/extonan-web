@@ -3,6 +3,8 @@
 /public/storage
 /storage/*.key
 /vendor
+/resorces/fontawesome-pro
+/mdb-pro
 .env
 .env.backup
 .phpunit.result.cache
