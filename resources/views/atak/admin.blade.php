@@ -73,6 +73,10 @@
         }
       });
     });
+    
+    $(document).on('click', function () {
+      $(".dropdown-menu").removeClass('show');
+    });
   </script>
   @yield('script')
 </body>
