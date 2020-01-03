@@ -64,6 +64,37 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="jadwal" tabindex="-1" role="dialog" aria-labelledby="jadwal" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold" id="modelHeading"></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body mx-3">
+                    <form id="episodeForm" name="episodeForm" class="form-horizontal">
+                        <input type="hidden" name="anime_id" value="{{ $anime->id }}" id="anime_id">
+                        <small class="text-muted">Pilih tanggal, nanti langsung diambil harinya.</small>
+                        <div class="md-form mb-5">
+                            <input type="text" id="hari" class="form-control datepicker">
+                            <label for="hari">Hari:</label>
+                        </div>
+                        <div class="md-form">
+                            <input type="text" id="jam" class="form-control timepicker">
+                            <label for="jam">Jam:</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" id="kirim" class="btn btn-default">Kirim</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-9">
             <div class="row">
@@ -131,12 +162,15 @@
 <script src="/js/mdb-file-upload.min.js"></script>
 <script>
     $(function() {
-        $('#ajaxModal').appendTo("body") 
+        $('#ajaxModal').appendTo("body");
+
+        $('#jadwal').appendTo("body");
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
         $('#ajaxModal').click(function() {
             $('#episode_id').val('');
             $('#sub_id').val('');
@@ -145,6 +179,10 @@
             $('#1080p_id').val('');
             $('#modelHeading').html("Tambah Episode Baru");
             $('#ajaxModal').modal('show');
+        });
+
+        $('#jadwal').click(function() {
+            $('#jadwal').modal('show');
         });
 
         $('#kirim').click(function(e) {
@@ -166,6 +204,17 @@
                 }
             });
         });
+
+        $('.datepicker').pickadate({
+            // Escape any “rule” characters with an exclamation mark (!).
+            format: 'dddd',
+            formatSubmit: 'dd',
+            hiddenPrefix: 'prefix__',
+            hiddenSuffix: '__suffix',
+            weekdaysFull: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
+        });
+
+        $('.timepicker').pickatime();
 
     });
 </script>
