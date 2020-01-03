@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\GenreList;
 use App\Anime;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-use Image;
-use File;
+use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
 
 class AnimeController extends Controller
@@ -25,7 +23,12 @@ class AnimeController extends Controller
         $this->middleware('auth');
         $this->loc = 'storage/images';
         $this->path = 'app/public/images';
-        $this->dimensions = [['1400', '450'], ['300', '425'], ['200', '300']];
+        $this->dimensions =
+            [
+                ['1400', '450'],
+                ['300', '425'],
+                ['200', '300']
+            ];
     }
 
     public function index()
@@ -81,7 +84,7 @@ class AnimeController extends Controller
             'sinopsis' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png'
         ]);
-        $id = $this->createSlug(substr($this->shorten_string($request->get('judul'), 5), 0, 20));
+        $id = $this->createSlug(substr($request->get('judul'), 0, 15));
         $animes->user_post_id = Auth::user()->id;
         $animes->judul = $request->get('judul');
         $animes->tahun = $request->get('tahun');
@@ -90,7 +93,7 @@ class AnimeController extends Controller
         $animes->skor = $request->get('skor');
         $animes->musim = $request->get('musim');
         $animes->id = $id;
-        
+
         //jenis
         $jenis = implode(',', $request->get('jenis'));
         $animes->jenis = $jenis;
@@ -99,7 +102,7 @@ class AnimeController extends Controller
         //gambar
         $lokasi = $this->path . '/' . $id;
         $gg = $id . '-cover.' . $request->file('image')->getClientOriginalExtension();
-        $this->unggah($request, $gg, $lokasi);
+        $this->unggah($request->file('image'), $gg, $lokasi);
         foreach ($this->dimensions as $item) {
             $this->type[] = $item[0] . ',' . $item[1];
         }
@@ -130,39 +133,6 @@ class AnimeController extends Controller
         $genres = implode(", ", $resultstr);
         return view('admin.anime.tampil', compact('anime', 'genres'));
     }
-
-    public function unggah($request, $fileName, $tempat)
-    {
-
-        $lokasi = storage_path($tempat);
-
-        if (!File::isDirectory($lokasi)) {
-            File::makeDirectory($lokasi);
-        }
-
-        $file = $request->file('image');
-        Image::make($file)->save($lokasi . '/' . $fileName);
-
-        foreach ($this->dimensions as $row) {
-            $canvas = Image::canvas($row[0], $row[1]);
-            $resizeImage  = Image::make($file)->fit($row[0], $row[1]);
-
-            if (!File::isDirectory($lokasi . '/' . $row[0])) {
-                File::makeDirectory($lokasi . '/' . $row[0]);
-            }
-
-            $canvas->insert($resizeImage, 'center');
-            $canvas->save($lokasi . '/' . $row[0] . '/' . $fileName);
-        }
-    }
-    public function cekDelet($tempat)
-    {
-        $lokasi = storage_path($tempat);
-        if (File::isDirectory($lokasi)) {
-            File::deleteDirectory($lokasi);
-        }
-    }
-
     public function createSlug($title, $id = 0)
     {
         // Normalize the title
@@ -173,9 +143,10 @@ class AnimeController extends Controller
         $allSlugs = $this->getRelatedSlugs($slug, $id);
 
         // If we haven't used it before then we are all good.
-        if (!$allSlugs->contains('id', $slug)) {
+        if (!$allSlugs->contains('slug', $slug)) {
             return $slug;
         }
+
         // Just append numbers like a savage until we find not used.
         for ($i = 1; $i <= 10; $i++) {
             $newSlug = $slug . '-' . $i;
@@ -186,23 +157,10 @@ class AnimeController extends Controller
 
         throw new \Exception('Can not create a unique slug');
     }
-    protected function getRelatedSlugs($slug)
+    protected function getRelatedSlugs($slug, $id = 0)
     {
-        return Anime::select('id')->where('id', 'like', $slug . '%')->get();
-    }
-
-    public function shorten_string($string, $wordsreturned)
-    {
-        $retval = $string;
-        $string = preg_replace('/(?<=\S,)(?=\S)/', ' ', $string);
-        $string = str_replace("\n", " ", $string);
-        $array = explode(" ", $string);
-        if (count($array) <= $wordsreturned) {
-            $retval = $string;
-        } else {
-            array_splice($array, $wordsreturned);
-            $retval = implode(" ", $array) . " ...";
-        }
-        return $retval;
+        return Anime::select('slug')->where('slug', 'like', $slug . '%')
+            ->where('id', '<>', $id)
+            ->get();
     }
 }
