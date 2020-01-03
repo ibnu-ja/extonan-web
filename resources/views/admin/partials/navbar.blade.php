@@ -19,9 +19,18 @@
       </li>
       @elseif (\Request::is('anime/tambah'))
       @elseif (\Request::is('anime/*'))
-      <li class="nav-item">
-        <a class="nav-link waves-effect" data-toggle="modal" data-target="#ajaxModal"><i class="far fa-plus-square"></i> <span class="clearfix d-none d-sm-inline-block">Tambah Episode</span></a>
-      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="far fa-plus-square"></i>  <span class="clearfix d-none d-sm-inline-block">Tambah</span>
+        </a>   
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Manajemen">
+          <a class="nav-link waves-effect" data-toggle="modal" data-target="#ajaxModal"><span class="clearfix d-none d-sm-inline-block">Episode</span></a>
+        <a class="nav-link waves-effect" data-toggle="modal" data-target="#jadwal"><span class="clearfix d-none d-sm-inline-block">Edit Jadwal</span></a>
+        </div>
+      </li>      
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Manajemen">
+        
+      </div>
       @endif
       <li class="nav-item dropdown">
         @auth
