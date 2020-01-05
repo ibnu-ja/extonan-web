@@ -15,7 +15,7 @@ class CreateGambarsTable extends Migration
     {
         Schema::create('gambars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
+            $table->string('ext');
             $table->string('dimensions');
             $table->string('lokasi');
             $table->string('anime_id');

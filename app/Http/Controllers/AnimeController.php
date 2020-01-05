@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use Illuminate\Http\Request;
 use App\GenreList;
 use App\Anime;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Image;
+use File;
 use Yajra\DataTables\DataTables;
 
 class AnimeController extends Controller
@@ -23,12 +26,7 @@ class AnimeController extends Controller
         $this->middleware('auth');
         $this->loc = 'storage/images';
         $this->path = 'app/public/images';
-        $this->dimensions =
-            [
-                ['1400', '450'],
-                ['300', '425'],
-                ['200', '300']
-            ];
+        $this->dimensions = [['1400', '450'], ['300', '425'], ['200', '300']];
     }
 
     public function index()
@@ -84,7 +82,7 @@ class AnimeController extends Controller
             'sinopsis' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png'
         ]);
-        $id = $this->createSlug(substr($request->get('judul'), 0, 15));
+        $id = $this->createSlug(substr($this->shorten_string($request->get('judul'), 5), 0, 20));
         $animes->user_post_id = Auth::user()->id;
         $animes->judul = $request->get('judul');
         $animes->tahun = $request->get('tahun');
@@ -94,20 +92,26 @@ class AnimeController extends Controller
         $animes->musim = $request->get('musim');
         $animes->id = $id;
 
+
         //jenis
         $jenis = implode(',', $request->get('jenis'));
         $animes->jenis = $jenis;
-        $animes->save();
+        $saved = $animes->save();
 
+
+        if(!$saved){
+            App::abort(500, 'Error');
+        }
+        
         //gambar
         $lokasi = $this->path . '/' . $id;
-        $gg = $id . '-cover.' . $request->file('image')->getClientOriginalExtension();
-        $this->unggah($request->file('image'), $gg, $lokasi);
+
+        $this->unggah($request,  $lokasi);
         foreach ($this->dimensions as $item) {
             $this->type[] = $item[0] . ',' . $item[1];
         }
         $animes->gambar()->create([
-            'nama' => $gg,
+            'ext' => $request->file('image')->getClientOriginalExtension(),
             'dimensions' => implode('|', $this->type),
             'lokasi' => $this->loc . '/' . $id,
         ]);
@@ -133,6 +137,34 @@ class AnimeController extends Controller
         $genres = implode(", ", $resultstr);
         return view('admin.anime.tampil', compact('anime', 'genres'));
     }
+
+    public function unggah($request, $tempat)
+    {
+
+        $lokasi = storage_path($tempat);
+
+        if (!File::isDirectory($lokasi)) {
+            File::makeDirectory($lokasi);
+        }
+
+        $file = $request->file('image');
+        Image::make($file)->save($lokasi . '/' . 'original.'.$file->getClientOriginalExtension());
+
+        foreach ($this->dimensions as $row) {
+            $canvas = Image::canvas($row[0], $row[1]);
+            $resizeImage  = Image::make($file)->fit($row[0], $row[1]);
+            $canvas->insert($resizeImage, 'center');
+            $canvas->save($lokasi . '/' . $row[0].'.'.$file->getClientOriginalExtension() );
+        }
+    }
+    public function cekDelet($tempat)
+    {
+        $lokasi = storage_path($tempat);
+        if (File::isDirectory($lokasi)) {
+            File::deleteDirectory($lokasi);
+        }
+    }
+
     public function createSlug($title, $id = 0)
     {
         // Normalize the title
@@ -143,10 +175,9 @@ class AnimeController extends Controller
         $allSlugs = $this->getRelatedSlugs($slug, $id);
 
         // If we haven't used it before then we are all good.
-        if (!$allSlugs->contains('slug', $slug)) {
+        if (!$allSlugs->contains('id', $slug)) {
             return $slug;
         }
-
         // Just append numbers like a savage until we find not used.
         for ($i = 1; $i <= 10; $i++) {
             $newSlug = $slug . '-' . $i;
@@ -157,10 +188,23 @@ class AnimeController extends Controller
 
         throw new \Exception('Can not create a unique slug');
     }
-    protected function getRelatedSlugs($slug, $id = 0)
+    protected function getRelatedSlugs($slug)
     {
-        return Anime::select('slug')->where('slug', 'like', $slug . '%')
-            ->where('id', '<>', $id)
-            ->get();
+        return Anime::select('id')->where('id', 'like', $slug . '%')->get();
+    }
+
+    public function shorten_string($string, $wordsreturned)
+    {
+        $retval = $string;
+        $string = preg_replace('/(?<=\S,)(?=\S)/', ' ', $string);
+        $string = str_replace("\n", " ", $string);
+        $array = explode(" ", $string);
+        if (count($array) <= $wordsreturned) {
+            $retval = $string;
+        } else {
+            array_splice($array, $wordsreturned);
+            $retval = implode(" ", $array) . " ...";
+        }
+        return $retval;
     }
 }

@@ -149,7 +149,7 @@
                     $res = explode('|', $anime->gambar->dimensions);
                     $ress = explode(',', $res[1]);
                     @endphp
-                    <img src="{{url($anime->gambar->lokasi.'/'.$ress[0].'/'.$anime->gambar->nama )}}" style="width: 100%;">
+                    <img src="{{url($anime->gambar->lokasi.'/'.$ress[0].'.'.$anime->gambar->ext )}}" style="width: 100%;">
                 </div>
             </div>
 
