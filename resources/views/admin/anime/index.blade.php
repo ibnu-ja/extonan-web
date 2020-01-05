@@ -79,26 +79,32 @@
             style: 'os',
             selector: 'td:first-child'
         }
+
+        //<div class='md-form m-0'><input type="search" class="form-control" placeholder="Search" aria-controls="data"></div>
     });
 
-    $('#data_wrapper, #data-checkbox_wrapper').find('label').each(function() {
-        $(this).parent().append($(this).children());
+    $(document).ready(function() {
+        $('#data_wrapper, #data-checkbox_wrapper').find('label').each(function() {
+            $(this).parent().append($(this).children());
+        });
+        $('#data_wrapper .dataTables_filter, #data-checkbox_wrapper .dataTables_filter').find(
+            'input').each(function() {
+            $('input').attr("placeholder", "Search");
+            $('input').removeClass('form-control-sm');
+        });
+        $('#data_filter').find('label').remove();
+        $('#data_filter').addClass('mt-0');
+        $('#data_wrapper .dataTables_length, #data-checkbox_wrapper .dataTables_length').addClass(
+            'd-flex flex-row');
+        $('#data_wrapper .dataTables_filter, #data-checkbox_wrapper .dataTables_filter').addClass(
+            'md-form');
+        $('#data_wrapper select, #data-checkbox_wrapper select').removeClass(
+            'custom-select custom-select-sm form-control form-control-sm');
+        $('#data_wrapper select, #data-checkbox_wrapper select').addClass('mdb-select');
+        $('#data_wrapper .mdb-select, #data-checkbox_wrapper .mdb-select').materialSelect();
+        $('#data_wrapper .dataTables_filte, #data-checkbox_wrapper .dataTables_filterr').find(
+            'label').remove();
     });
-    $('#data_wrapper .dataTables_filter, #data-checkbox_wrapper .dataTables_filter').find(
-        'input').each(function() {
-        $('input').attr("placeholder", "Search");
-        $('input').removeClass('form-control-sm');
-    });
-    $('#data_wrapper .dataTables_length, #data-checkbox_wrapper .dataTables_length').addClass(
-        'd-flex flex-row');
-    $('#data_wrapper .dataTables_filter, #data-checkbox_wrapper .dataTables_filter').addClass(
-        'md-form');
-    $('#data_wrapper select, #data-checkbox_wrapper select').removeClass(
-        'custom-select custom-select-sm form-control form-control-sm');
-    $('#data_wrapper select, #data-checkbox_wrapper select').addClass('mdb-select');
-    $('#data_wrapper .mdb-select, #data-checkbox_wrapper .mdb-select').materialSelect();
-    $('#data_wrapper .dataTables_filte, #data-checkbox_wrapper .dataTables_filterr').find(
-        'label').remove();
 </script>
 
 @endsection
