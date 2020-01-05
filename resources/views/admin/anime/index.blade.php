@@ -1,36 +1,5 @@
 @extends('atak.admin')
 @section('judul', 'Indeks - Anime')
-@section('style')
-<style>
-    table.dataTable thead .sorting:before,
-    table.dataTable thead .sorting_asc:before,
-    table.dataTable thead .sorting_desc:before,
-    table.dataTable thead .sorting_asc_disabled:before,
-    table.dataTable thead .sorting_desc_disabled:before,
-    table.dataTable thead .sorting:after,
-    table.dataTable thead .sorting_asc:after,
-    table.dataTable thead .sorting_desc:after,
-    table.dataTable thead .sorting_asc_disabled:after,
-    table.dataTable thead .sorting_desc_disabled:after {
-        font-family: "Font Awesome 5 Pro";
-    }
-
-    table.table a {
-        color: #007bff;
-        text-decoration: none;
-    }
-
-    table.table a:hover {
-        color: #0056b3;
-        -webkit-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-
-    table td {
-        font-weight: 400;
-    }
-</style>
-@endsection
 @section('konten')
 <!-- Section: Inputs -->
 <section class="section mb-4">
