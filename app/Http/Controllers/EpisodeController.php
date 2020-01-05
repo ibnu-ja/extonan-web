@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Episode;
-
 use Illuminate\Http\Request;
 
 class EpisodeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function simpan(Request $request, $id)
     {
         $episodes = new Episode();
