@@ -6,6 +6,10 @@
         font-weight: bold;
         color: black;
     }
+
+    .links {
+        border-top: none !important;
+    }
 </style>
 @endsection
 @section('konten')
@@ -155,67 +159,157 @@
 
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                <table id="data" class="table " cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width:10%;">Link</th>
+                            <th>id</th>
+                            <th>Episode</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- Section: Inputs -->
 @endsection
 @section('script')
 <script src="/js/mdb-file-upload.min.js"></script>
+<script type="text/javascript" src=" {{ asset('js/addons/datatables.min.js') }}"></script>
+<script type="text/javascript" src=" {{ asset('js/addons/datatables-select.min.js') }}"></script>
 <script>
-    $(function() {
-        $('#ajaxModal').appendTo("body");
+    $(document).ready(function() {
+        var table = $('#data').DataTable({
+            processing: true,
+            serverSide: true,
+            columns: [{
+                    "className": 'details-control',
+                    "orderable": false,
+                    "data": null,
+                    "defaultContent": '',
+                    'render': function() {
+                        return "<i class='fa fa-plus-circle'></i>";
+                    }
+                },
+                {
+                    data: 'id',
+                    name: 'id'
+                    // render: function(data, type, row) {
+                    //     return "<a class='test' href='/anime/" + row.id + "'>" + row.judul + "</a>"
+                },
+                {
+                    data: 'episode',
+                    name: 'episode',
+                    // searchable: true,
+                    // visible: false
+                }
+            ],
+            ajax: function(data, callback, settings) {
+                settings.jqXHR = $.ajax({
+                    "dataType": 'json',
+                    "url": "{{ url('anime/'.$anime->id) }}",
+                    "type": "GET",
+                    "data": data,
+                    "success": callback,
+                    "error": function(e) {
+                        console.log(e.message);
+                    }
 
-        $('#jadwal').appendTo("body");
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                });
             }
         });
 
-        $('#ajaxModal').click(function() {
-            $('#episode_id').val('');
-            $('#sub_id').val('');
-            $('#480p_id').val('');
-            $('#720p_id').val('');
-            $('#1080p_id').val('');
-            $('#modelHeading').html("Tambah Episode Baru");
-            $('#ajaxModal').modal('show');
-        });
+        function format(d) {
+            var childContent = '';
+            childContent += '<table style="width:100%" class="p-0">';
+            $.each(d.link, function(i, elem) {
+                childContent += '<tr>';
+                var result = elem.link.split(',');
+                if (i == 0) {
+                    childContent += '<td class="links">' + result[0] + ' ' + result[1] + '</td>';
+                    childContent += '<td class="links">' + elem.res + '</td>';
+                } else {
+                    childContent += '<td>' + result[0] + ' ' + result[1] + '</td>';
+                    childContent += '<td>' + elem.res + '</td>';
+                }
+                childContent += '</tr>';
+            });
+            childContent += '</table>';
+            return childContent;
+        }
+        $('#data').on('click', 'td.details-control', function() {
+            var tr = $(this).closest('tr');
+            var row = table.row(tr);
 
-        $('#jadwal').click(function() {
-            $('#jadwal').modal('show');
+            if (row.child.isShown()) {
+                // This row is already open - close it
+                row.child.hide();
+                tr.removeClass('shown');
+            } else {
+                // Open this row
+                row.child(format(row.data()), ['p-0']).show();
+                tr.addClass('shown');
+            }
         });
+        $(function() {
+            $('#ajaxModal').appendTo("body");
 
-        $('#kirim').click(function(e) {
-            e.preventDefault();
-            $(this).html('Sending..');
-            $.ajax({
-                data: $('#episodeForm').serialize(),
-                url: "{{ route('tambahEp', ['id' => $anime->id]) }}",
-                type: "POST",
-                dataType: 'json',
-                success: function(data) {
-                    $('#episodeForm').trigger("reset");
-                    $('#ajaxModal').modal('hide');
-                    $('.modal-backdrop').remove();
-                },
-                error: function(data) {
-                    console.log('Error:', data);
-                    $('#kirim').html('Save Changes');
+            $('#jadwal').appendTo("body");
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+
+            $('#ajaxModal').click(function() {
+                $('#episode_id').val('');
+                $('#sub_id').val('');
+                $('#480p_id').val('');
+                $('#720p_id').val('');
+                $('#1080p_id').val('');
+                $('#modelHeading').html("Tambah Episode Baru");
+                $('#ajaxModal').modal('show');
+            });
+
+            $('#jadwal').click(function() {
+                $('#jadwal').modal('show');
+            });
+
+            $('#kirim').click(function(e) {
+                e.preventDefault();
+                $(this).html('Sending..');
+                $.ajax({
+                    data: $('#episodeForm').serialize(),
+                    url: "{{ route('tambahEp', ['id' => $anime->id]) }}",
+                    type: "POST",
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#episodeForm').trigger("reset");
+                        $('#ajaxModal').modal('hide');
+                        $('.modal-backdrop').remove();
+                    },
+                    error: function(data) {
+                        console.log('Error:', data);
+                        $('#kirim').html('Save Changes');
+                    }
+                });
+            });
+
+            $('.datepicker').pickadate({
+                // Escape any “rule” characters with an exclamation mark (!).
+                format: 'dddd',
+                formatSubmit: 'dd',
+                hiddenPrefix: 'prefix__',
+                hiddenSuffix: '__suffix',
+                weekdaysFull: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
+            });
+
+            $('.timepicker').pickatime();
         });
-
-        $('.datepicker').pickadate({
-            // Escape any “rule” characters with an exclamation mark (!).
-            format: 'dddd',
-            formatSubmit: 'dd',
-            hiddenPrefix: 'prefix__',
-            hiddenSuffix: '__suffix',
-            weekdaysFull: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
-        });
-
-        $('.timepicker').pickatime();
-
     });
 </script>
 @endsection

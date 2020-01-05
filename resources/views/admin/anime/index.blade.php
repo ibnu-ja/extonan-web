@@ -3,21 +3,19 @@
 @section('konten')
 <!-- Section: Inputs -->
 <section class="section mb-4">
-    <div class="card">
-        <div class="card-body">
-            <table id="data" class="table " cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th style="width: 40%">Judul</th>
-                        <th>Alt</th>
-                        <th>Musim</th>
-                        <th>Skor</th>
-                        <th>Genre</th>
-                        <th style="width: 20%">Aksi</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
+    <div class="card card-body">
+        <table id="data" class="table " cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th style="width: 40%">Judul</th>
+                    <th>Alt</th>
+                    <th>Musim</th>
+                    <th>Skor</th>
+                    <th>Genre</th>
+                    <th style="width: 20%">Aksi</th>
+                </tr>
+            </thead>
+        </table>
     </div>
 </section>
 <!-- Section: Inputs -->
@@ -79,8 +77,6 @@
             style: 'os',
             selector: 'td:first-child'
         }
-
-        //<div class='md-form m-0'><input type="search" class="form-control" placeholder="Search" aria-controls="data"></div>
     });
 
     $(document).ready(function() {

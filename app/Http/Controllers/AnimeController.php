@@ -6,6 +6,7 @@ use App;
 use Illuminate\Http\Request;
 use App\GenreList;
 use App\Anime;
+use App\Episode;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Image;
@@ -99,10 +100,10 @@ class AnimeController extends Controller
         $saved = $animes->save();
 
 
-        if(!$saved){
+        if (!$saved) {
             App::abort(500, 'Error');
         }
-        
+
         //gambar
         $lokasi = $this->path . '/' . $id;
 
@@ -129,12 +130,16 @@ class AnimeController extends Controller
 
     public function tampil($id)
     {
-        $anime = Anime::with('gambar', 'genres')->findOrFail($id);
+        $anime = Anime::with('gambar', 'genres', 'episode')->findOrFail($id);
         $resultstr = array();
         foreach ($anime->genres as $result) {
             $resultstr[] = ucfirst($result->genre);
         }
         $genres = implode(", ", $resultstr);
+        $episodes = DataTables::of(Episode::with('link')->where('anime_id', '=', $anime->id))->make(true);
+        if (request()->ajax()) {
+            return $episodes;
+        }
         return view('admin.anime.tampil', compact('anime', 'genres'));
     }
 
@@ -148,13 +153,13 @@ class AnimeController extends Controller
         }
 
         $file = $request->file('image');
-        Image::make($file)->save($lokasi . '/' . 'original.'.$file->getClientOriginalExtension());
+        Image::make($file)->save($lokasi . '/' . 'original.' . $file->getClientOriginalExtension());
 
         foreach ($this->dimensions as $row) {
             $canvas = Image::canvas($row[0], $row[1]);
             $resizeImage  = Image::make($file)->fit($row[0], $row[1]);
             $canvas->insert($resizeImage, 'center');
-            $canvas->save($lokasi . '/' . $row[0].'.'.$file->getClientOriginalExtension() );
+            $canvas->save($lokasi . '/' . $row[0] . '.' . $file->getClientOriginalExtension());
         }
     }
     public function cekDelet($tempat)
