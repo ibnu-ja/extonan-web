@@ -85,54 +85,62 @@
     position: absolute;
     top: 130px;
   }
+
+  .genre {
+    font-size: 1rem;
+  }
 </style>
 @endsection
 @section('header')
 @parent
 <!-- Main Navigation -->
 <header>
-  <nav class="mb-1 navbar navbar-light white navbar-expand-lg ">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333" aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-light white">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+      aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home
+          <a class="nav-link" href="#">Beranda
             <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#">Jadwal Rilis</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="#">Genre</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Daftar Anime
           </a>
           <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">A-Z</a>
+            <a class="dropdown-item" href="#">Sedang Tayang</a>
+            <a class="dropdown-item" href="#">Selesai Tayang</a>
           </div>
         </li>
       </ul>
       <!-- Search form -->
       <form class="form-inline md-form form-xl active-cyan-2 m-0">
-        <input class="form-control form-control-xl mr-3 w-20" type="text" placeholder="Search" aria-label="Search">
-        <i class="fas fa-search" aria-hidden="true"></i>
+        <input class="form-control form-control-xl mr-3 w-20" type="text" placeholder="Search"
+          aria-label="Search">
+        <i class="fas fa-search"></i>
       </form>
     </div>
   </nav>
-  <div class="masthead rgba-gradient" >
+  <div class="masthead rgba-gradient">
   </div>
 </header>
 <!-- Main Navigation -->
 @endsection
 @section('konten')
 <div class="container pt-3">
-  <div class="text-white logo"><img src=" {{asset('/images/tonan-inv.png') }}" alt="" width="50px" height="auto"> asdada  </div>
+  <div class="text-white logo"><img src=" {{asset('/images/tonan-inv.png') }}" alt="" width="50px" height="auto"> asdada
+  </div>
   <!-- Blog -->
   <div class="row mt-3 pt-3">
 
@@ -146,7 +154,8 @@
             <!-- Card -->
             <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
               <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Digital.com" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -159,7 +168,8 @@
             <!-- Card -->
             <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
               <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Digital.com" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -172,7 +182,8 @@
             <!-- Card -->
             <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
               <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Digital.com" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -185,7 +196,8 @@
             <!-- Card -->
             <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
               <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Digital.com" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -198,7 +210,8 @@
             <!-- Card -->
             <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
               <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Digital.com" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -211,7 +224,8 @@
             <!-- Card -->
             <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
               <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Digital.com" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -224,7 +238,8 @@
             <!-- Card -->
             <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
               <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Digital.com" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -237,7 +252,8 @@
             <!-- Card -->
             <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
               <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Digital.com" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -260,7 +276,8 @@
             <!-- Card -->
             <div class="card">
               <div class="view overlay">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=thumbnail kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -278,7 +295,8 @@
             <!-- Card -->
             <div class="card">
               <div class="view overlay">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=thumbnail kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -296,7 +314,8 @@
             <!-- Card -->
             <div class="card">
               <div class="view overlay">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=thumbnail kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -314,7 +333,8 @@
             <!-- Card -->
             <div class="card">
               <div class="view overlay">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=thumbnail kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -332,7 +352,8 @@
             <!-- Card -->
             <div class="card">
               <div class="view overlay">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=thumbnail kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -350,7 +371,8 @@
             <!-- Card -->
             <div class="card">
               <div class="view overlay">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=thumbnail kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -368,7 +390,8 @@
             <!-- Card -->
             <div class="card">
               <div class="view overlay">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=thumbnail kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -386,7 +409,8 @@
             <!-- Card -->
             <div class="card">
               <div class="view overlay">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=thumbnail kartun"
+                  alt="Card image cap">
                 <a href="#!">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -456,7 +480,8 @@
               <div class="col-lg-4 col-4">
                 <!-- Featured image -->
                 <div class="view overlay z-depth-1">
-                  <img src="http://placehold.it/200x300/9cc2ff/?text=Digital.com" class="img-fluid" alt="First sample image">
+                  <img src="http://placehold.it/200x300/9cc2ff/?text=cover kartun" class="img-fluid"
+                    alt="First sample image">
                   <a>
                     <div class="mask rgba-white-slight"></div>
                   </a>
@@ -489,7 +514,7 @@
                   <strong>
                     <a>Judul Anime</a>
                   </strong>
-                  <p class="gray-text">Genre, Genre, Genre</p>
+                  <p class="gray-text genre">Genre, Genre, Genre</p>
                 </h4>
                 <div class="">
                   <p class="dark-grey-text clamp">Nam libero tempore, cum soluta nobis est eligendi optio cumque
@@ -517,7 +542,8 @@
               <div class="col-lg-4 col-4">
                 <!-- Featured image -->
                 <div class="view overlay z-depth-1">
-                  <img src="http://placehold.it/200x300/9cc2ff/?text=Digital.com" class="img-fluid" alt="First sample image">
+                  <img src="http://placehold.it/200x300/9cc2ff/?text=cover kartun" class="img-fluid"
+                    alt="First sample image">
                   <a>
                     <div class="mask rgba-white-slight"></div>
                   </a>
@@ -550,7 +576,7 @@
                   <strong>
                     <a>Judul Anime</a>
                   </strong>
-                  <p class="gray-text">Genre, Genre, Genre</p>
+                  <p class="gray-text genre">Genre, Genre, Genre</p>
                 </h4>
                 <div class="">
                   <p class="dark-grey-text clamp">Nam libero tempore, cum soluta nobis est eligendi optio cumque
@@ -578,7 +604,8 @@
               <div class="col-lg-4 col-4">
                 <!-- Featured image -->
                 <div class="view overlay z-depth-1">
-                  <img src="http://placehold.it/200x300/9cc2ff/?text=Digital.com" class="img-fluid" alt="First sample image">
+                  <img src="http://placehold.it/200x300/9cc2ff/?text=cover kartun" class="img-fluid"
+                    alt="First sample image">
                   <a>
                     <div class="mask rgba-white-slight"></div>
                   </a>
@@ -611,7 +638,7 @@
                   <strong>
                     <a>Judul Anime</a>
                   </strong>
-                  <p class="gray-text">Genre, Genre, Genre</p>
+                  <p class="gray-text genre">Genre, Genre, Genre</p>
                 </h4>
                 <div class="">
                   <p class="dark-grey-text clamp">Nam libero tempore, cum soluta nobis est eligendi optio cumque
@@ -639,7 +666,8 @@
               <div class="col-lg-4 col-4">
                 <!-- Featured image -->
                 <div class="view overlay z-depth-1">
-                  <img src="http://placehold.it/200x300/9cc2ff/?text=Digital.com" class="img-fluid" alt="First sample image">
+                  <img src="http://placehold.it/200x300/9cc2ff/?text=cover kartun" class="img-fluid"
+                    alt="First sample image">
                   <a>
                     <div class="mask rgba-white-slight"></div>
                   </a>
@@ -672,7 +700,7 @@
                   <strong>
                     <a>Judul Anime</a>
                   </strong>
-                  <p class="gray-text">Genre, Genre, Genre</p>
+                  <p class="gray-text genre">Genre, Genre, Genre</p>
                 </h4>
                 <div class="">
                   <p class="dark-grey-text clamp">Nam libero tempore, cum soluta nobis est eligendi optio cumque
@@ -700,7 +728,8 @@
               <div class="col-lg-4 col-4">
                 <!-- Featured image -->
                 <div class="view overlay z-depth-1">
-                  <img src="http://placehold.it/200x300/9cc2ff/?text=Digital.com" class="img-fluid" alt="First sample image">
+                  <img src="http://placehold.it/200x300/9cc2ff/?text=cover kartun" class="img-fluid"
+                    alt="First sample image">
                   <a>
                     <div class="mask rgba-white-slight"></div>
                   </a>
@@ -733,7 +762,7 @@
                   <strong>
                     <a>Judul Anime</a>
                   </strong>
-                  <p class="gray-text">Genre, Genre, Genre</p>
+                  <p class="gray-text genre">Genre, Genre, Genre</p>
                 </h4>
                 <div class="">
                   <p class="dark-grey-text clamp">Nam libero tempore, cum soluta nobis est eligendi optio cumque
@@ -761,7 +790,8 @@
               <div class="col-lg-4 col-4">
                 <!-- Featured image -->
                 <div class="view overlay z-depth-1">
-                  <img src="http://placehold.it/200x300/9cc2ff/?text=Digital.com" class="img-fluid" alt="First sample image">
+                  <img src="http://placehold.it/200x300/9cc2ff/?text=cover kartun" class="img-fluid"
+                    alt="First sample image">
                   <a>
                     <div class="mask rgba-white-slight"></div>
                   </a>
@@ -794,7 +824,7 @@
                   <strong>
                     <a>Judul Anime</a>
                   </strong>
-                  <p class="gray-text">Genre, Genre, Genre</p>
+                  <p class="gray-text genre">Genre, Genre, Genre</p>
                 </h4>
                 <div class="">
                   <p class="dark-grey-text clamp">Nam libero tempore, cum soluta nobis est eligendi optio cumque
@@ -847,7 +877,7 @@
 
               <!-- Image -->
               <div class="view overlay z-depth-1 mb-3">
-                <img src="https://mdbootstrap.com/img/Photos/Others/project1.jpg" class="img-fluid" alt="Post">
+                <img src="http://placehold.it/300x200/9cc2ff/?text=nimu" class="img-fluid" alt="Post">
                 <a>
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -862,7 +892,7 @@
               <!-- Post data -->
               <div class="">
                 <p class="mb-1">
-                  <a href="#!" class="text-hover font-weight-bold">This is news title</a>
+                  <a href="#!" class="text-hover font-weight-bold">Judul Kartun</a>
                 </p>
                 <p class="font-small dark-grey-text">
                   <em>July 22, 2017</em>
@@ -887,7 +917,7 @@
 
               <!-- Image -->
               <div class="view overlay z-depth-1 mb-3">
-                <img src="https://mdbootstrap.com/img/Photos/Others/photo3.jpg" class="img-fluid" alt="Post">
+                <img src="http://placehold.it/300x200/9cc2ff/?text=nimu" class="img-fluid" alt="Post">
                 <a>
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -902,88 +932,7 @@
               <!-- Post data -->
               <div class="">
                 <p class="mb-1">
-                  <a href="#!" class="text-hover font-weight-bold">This is news title</a>
-                </p>
-                <p class="font-small dark-grey-text">
-                  <em>July 22, 2017</em>
-                </p>
-
-              </div>
-
-            </div>
-            <!-- Second column -->
-
-          </div>
-          <!-- Grid row -->
-
-        </div>
-
-        <div class="post-border">
-
-          <!-- Grid row -->
-          <div class="row">
-
-            <!-- Grid column -->
-            <div class="col-5">
-
-              <!-- Image -->
-              <div class="view overlay z-depth-1 mb-3">
-                <img src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" class="img-fluid" alt="Post">
-                <a>
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-            </div>
-            <!-- Grid column -->
-
-            <!-- Second column -->
-            <div class="col-7 mb-1">
-
-              <!-- Post data -->
-              <div class="">
-                <p class="mb-1">
-                  <a href="#!" class="text-hover font-weight-bold">This is news title</a>
-                </p>
-                <p class="font-small dark-grey-text">
-                  <em>July 22, 2017</em>
-                </p>
-              </div>
-
-            </div>
-            <!-- Second column -->
-
-          </div>
-          <!-- Grid row -->
-
-        </div>
-
-        <div class="post-border">
-
-          <!-- Grid row -->
-          <div class="row">
-
-            <!-- Grid column -->
-            <div class="col-5">
-
-              <!-- Image -->
-              <div class="view overlay z-depth-1 mb-3">
-                <img src="https://mdbootstrap.com/img/Photos/Others/photo8.jpg" class="img-fluid" alt="Post">
-                <a>
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-            </div>
-            <!-- Grid column -->
-
-            <!-- Second column -->
-            <div class="col-7 mb-1">
-
-              <!-- Post data -->
-              <div class="">
-                <p class="mb-1">
-                  <a href="#!" class="text-hover font-weight-bold">This is news title</a>
+                  <a href="#!" class="text-hover font-weight-bold">Judul Kartun</a>
                 </p>
                 <p class="font-small dark-grey-text">
                   <em>July 22, 2017</em>
@@ -1009,7 +958,7 @@
 
               <!-- Image -->
               <div class="view overlay z-depth-1 mb-3">
-                <img src="https://mdbootstrap.com/img/Photos/Others/photo9.jpg" class="img-fluid" alt="Post">
+                <img src="http://placehold.it/300x200/9cc2ff/?text=nimu" class="img-fluid" alt="Post">
                 <a>
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -1024,7 +973,88 @@
               <!-- Post data -->
               <div class="">
                 <p class="mb-1">
-                  <a href="#!" class="text-hover font-weight-bold">This is news title</a>
+                  <a href="#!" class="text-hover font-weight-bold">Judul Kartun</a>
+                </p>
+                <p class="font-small dark-grey-text">
+                  <em>July 22, 2017</em>
+                </p>
+              </div>
+
+            </div>
+            <!-- Second column -->
+
+          </div>
+          <!-- Grid row -->
+
+        </div>
+
+        <div class="post-border">
+
+          <!-- Grid row -->
+          <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-5">
+
+              <!-- Image -->
+              <div class="view overlay z-depth-1 mb-3">
+                <img src="http://placehold.it/300x200/9cc2ff/?text=nimu" class="img-fluid" alt="Post">
+                <a>
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Second column -->
+            <div class="col-7 mb-1">
+
+              <!-- Post data -->
+              <div class="">
+                <p class="mb-1">
+                  <a href="#!" class="text-hover font-weight-bold">Judul Kartun</a>
+                </p>
+                <p class="font-small dark-grey-text">
+                  <em>July 22, 2017</em>
+                </p>
+
+              </div>
+
+            </div>
+            <!-- Second column -->
+
+          </div>
+          <!-- Grid row -->
+
+        </div>
+
+        <div class="post-border">
+
+          <!-- Grid row -->
+          <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-5">
+
+              <!-- Image -->
+              <div class="view overlay z-depth-1 mb-3">
+                <img src="http://placehold.it/300x200/9cc2ff/?text=nimu" class="img-fluid" alt="Post">
+                <a>
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Second column -->
+            <div class="col-7 mb-1">
+
+              <!-- Post data -->
+              <div class="">
+                <p class="mb-1">
+                  <a href="#!" class="text-hover font-weight-bold">Judul Kartun</a>
                 </p>
                 <p class="font-small dark-grey-text">
                   <em>July 22, 2017</em>
@@ -1063,37 +1093,12 @@
             <ul class="list-unstyled mt-3">
               <li>
                 <h6 class="font-weight-normal">
-                  <a href="#!" class="dark-grey-text">August 2016</a>
+                  <a href="#!" class="dark-grey-text">Winter 2020</a>
                 </h6>
               </li>
               <li>
                 <h6 class="font-weight-normal">
-                  <a href="#!" class="dark-grey-text">July 2016</a>
-                </h6>
-              </li>
-              <li>
-                <h6 class="font-weight-normal">
-                  <a href="#!" class="dark-grey-text">June 2016</a>
-                </h6>
-              </li>
-              <li>
-                <h6 class="font-weight-normal">
-                  <a href="#!" class="dark-grey-text">May 2016</a>
-                </h6>
-              </li>
-              <li>
-                <h6 class="font-weight-normal">
-                  <a href="#!" class="dark-grey-text">April 2016</a>
-                </h6>
-              </li>
-              <li>
-                <h6 class="font-weight-normal">
-                  <a href="#!" class="dark-grey-text">March 2016</a>
-                </h6>
-              </li>
-              <li>
-                <h6 class="font-weight-normal">
-                  <a href="#!" class="dark-grey-text">Febuary 2016</a>
+                  <a href="#!" class="dark-grey-text">Fall 2019</a>
                 </h6>
               </li>
             </ul>
@@ -1153,8 +1158,8 @@
 
   $('.trending').slick({
     arrows: true,
-    // autoplay: true,
-    // autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 2000,
     speed: 300,
     slidesToShow: 5,
     slidesToScroll: 1,
