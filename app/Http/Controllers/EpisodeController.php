@@ -12,10 +12,11 @@ class EpisodeController extends Controller
     {
         $this->middleware('auth');
     }
-    public function tambah($id, $epId)
+    public function tambah($id, $epId = null)
     {
         $anime = Anime::with('gambar', 'genres', 'episode')->findOrFail($id);
-        return view('admin.anime.episode.tambah', compact('anime'));
+        
+        return view('admin.anime.episode.tambah', compact('anime', '$epId'));
     }
     public function simpan(Request $request, $id)
     {
@@ -37,12 +38,6 @@ class EpisodeController extends Controller
         $this->validate($request, [
             'episode' => 'string|required'
         ]);
-
-        $user = Episode::firstOrCreate(array(
-            'id' => 'John',
-            'episode' => 'John',
-            'anime_id' => 'John'
-        ));
 
         $episodes->episode = $request->episode;
         $episodes->anime_id = $request->anime_id;
