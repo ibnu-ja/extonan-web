@@ -14,4 +14,7 @@ class Episode extends Model
     public function link(){
         return $this->hasMany('App\Link');
     }
+    public function thumbnail(){
+        return $this->hasOne('App\Thumbnail');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Anime;
 use App\Episode;
 use Illuminate\Http\Request;
 
@@ -11,52 +12,54 @@ class EpisodeController extends Controller
     {
         $this->middleware('auth');
     }
+    public function tambah($id, $epId)
+    {
+        $anime = Anime::with('gambar', 'genres', 'episode')->findOrFail($id);
+        return view('admin.anime.episode.tambah', compact('anime'));
+    }
     public function simpan(Request $request, $id)
     {
+
+        // echo $request->episode;
+        // $link = $request->link;
+        // $res = $request->res;
+        // foreach ($link as $key => $n) {
+        //     echo $res[$key]."</br>";
+        //     $links = explode(PHP_EOL, $n);
+        //     foreach ($links as $data) {
+        //         $linkks = explode("|", $data);
+        //         echo "<a href=".$linkks[0].">".$linkks[1]."</a> </br>";
+        //     }
+        // }
+        // return $request->except('tambah');
+
         $episodes = new Episode();
         $this->validate($request, [
-            'anime_id' => 'string|required',
-            'sub' => 'string|nullable|required',
-            'res_480p' => 'string|nullable',
-            'res_720p' => 'string|nullable',
-            'res_1080p' => 'string|nullable',
+            'episode' => 'string|required'
         ]);
+
+        $user = Episode::firstOrCreate(array(
+            'id' => 'John',
+            'episode' => 'John',
+            'anime_id' => 'John'
+        ));
+
         $episodes->episode = $request->episode;
         $episodes->anime_id = $request->anime_id;
         $episodes->save();
 
-        if (!empty($request->sub))
-            $episodes->link()
-                ->create(
-                    [
-                        'link' => $request->sub,
-                        'res' => 'sub'
-                    ]
-                );
-        if (!empty($request->res_480p))
-            $episodes->link()
-                ->create(
-                    [
-                        'link' => $request->sub,
-                        'res' => '480p'
-                    ]
-                );
-        if (!empty($request->res_720p))
-            $episodes->link()
-                ->create(
-                    [
-                        'link' => $request->sub,
-                        'res' => '720p'
-                    ]
-                );
-        if (!empty($request->res_1080p))
-            $episodes->link()
-                ->create(
-                    [
-                        'link' => $request->sub,
-                        'res' => '1080p'
-                    ]
-                );
-        return response()->json(['success' => 'Tambah episode berhasil.']);
+        if ($link = $request->link) {
+            $res = $request->res;
+            foreach ($link as $key => $n) {
+                $episodes->link()
+                    ->create(
+                        [
+                            'link' => $n,
+                            'res' => $res[$key]
+                        ]
+                    );
+            }
+        }
+        return redirect('anime/' . $id)->with('success', 'Tambah episode berhasil');
     }
 }

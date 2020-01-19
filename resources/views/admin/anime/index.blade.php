@@ -24,7 +24,6 @@
 
 <script type="text/javascript" src=" {{ asset('js/addons/datatables.min.js') }}"></script>
 <script type="text/javascript" src=" {{ asset('js/addons/datatables-select.min.js') }}"></script>
-
 <script>
     $(function() {
         $('#data').DataTable({

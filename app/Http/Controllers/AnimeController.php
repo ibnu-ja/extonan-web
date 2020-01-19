@@ -92,32 +92,23 @@ class AnimeController extends Controller
         $animes->skor = $request->get('skor');
         $animes->musim = $request->get('musim');
         $animes->id = $id;
-
-
         //jenis
         $jenis = implode(',', $request->get('jenis'));
         $animes->jenis = $jenis;
         $saved = $animes->save();
-
-
         if (!$saved) {
             App::abort(500, 'Error');
         }
 
         //gambar
         $lokasi = $this->path . '/' . $id;
-
-        $this->unggah($request,  $lokasi);
-        foreach ($this->dimensions as $item) {
-            $this->type[] = $item[0] . ',' . $item[1];
-        }
+        unggah($request->image,  $lokasi);
+        //gambar database
         $animes->gambar()->create([
             'ext' => $request->file('image')->getClientOriginalExtension(),
             'dimensions' => implode('|', $this->type),
             'lokasi' => $this->loc . '/' . $id,
         ]);
-
-
         //genre
         foreach ($request->get('genre') as $genre) {
             $animes->genres()->create(['genre' => $genre]);
@@ -143,25 +134,7 @@ class AnimeController extends Controller
         return view('admin.anime.tampil', compact('anime', 'genres'));
     }
 
-    public function unggah($request, $tempat)
-    {
-
-        $lokasi = storage_path($tempat);
-
-        if (!File::isDirectory($lokasi)) {
-            File::makeDirectory($lokasi);
-        }
-
-        $file = $request->file('image');
-        Image::make($file)->save($lokasi . '/' . 'original.' . $file->getClientOriginalExtension());
-
-        foreach ($this->dimensions as $row) {
-            $canvas = Image::canvas($row[0], $row[1]);
-            $resizeImage  = Image::make($file)->fit($row[0], $row[1]);
-            $canvas->insert($resizeImage, 'center');
-            $canvas->save($lokasi . '/' . $row[0] . '.' . $file->getClientOriginalExtension());
-        }
-    }
+    
     public function cekDelet($tempat)
     {
         $lokasi = storage_path($tempat);

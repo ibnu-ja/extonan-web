@@ -4,29 +4,26 @@ use Image;
 use File;
 
 if (!function_exists('unggah')) {
-    function unggah($file, $namaFile, $tempat, $dimensi)
+    function unggah($file, $tempat, $dimensi = null, $namaFile = null)
     {
         $lokasi = storage_path($tempat);
         if (File::isDirectory($lokasi)) {
             File::deleteDirectory($lokasi);
         }
-
-        if (!File::isDirectory($lokasi)) {
-            File::makeDirectory($lokasi);
+        if (!empty($namaFile)) {
+            Image::make($file)->save($lokasi . '/' . $namaFile);
+        }
+        else {
+            Image::make($file)->save($lokasi . '/' . 'original.' . $file->getClientOriginalExtension());
         }
 
-        Image::make($file)->save($lokasi . '/' . $namaFile);
-
-        foreach ($dimensi as $row) {
-            $canvas = Image::canvas($row[0], $row[1]);
-            $resizeImage  = Image::make($file)->fit($row[0], $row[1]);
-
-            if (!File::isDirectory($lokasi . '/' . $row[0])) {
-                File::makeDirectory($lokasi . '/' . $row[0]);
+        if (is_array($dimensi)) {
+            foreach ($this->dimensions as $row) {
+                $canvas = Image::canvas($row[0], $row[1]);
+                $resizeImage  = Image::make($file)->fit($row[0], $row[1]);
+                $canvas->insert($resizeImage, 'center');
+                $canvas->save($lokasi . '/' . $row[0] . '.' . $file->getClientOriginalExtension());
             }
-
-            $canvas->insert($resizeImage, 'center');
-            $canvas->save($lokasi . '/' . $row[0] . '/' . $namaFile);
         }
     }
 }
