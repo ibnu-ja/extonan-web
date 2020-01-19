@@ -27,6 +27,7 @@
                 </div>
             </div>
         </div>
+        {{--
         <div class="row mb-4">
             <div class="col">
                 <div class="card card-body">
@@ -34,8 +35,9 @@
                         <div class="md-form m-0"><i class="far fa-link prefix prefix grey-text"></i><textarea id="'+res+'" class="md-textarea form-control" name="'+res+'" rows="4"></textarea><label for="'+res+'">'+res+'</label></div>
                     </div>
                 </div>
-            </div>
-        </div>
+             </div>
+         </div>--}}
+
         <div class="row">
             <div class="col mb-4 text-center">
                 <div class="md-form">
@@ -49,6 +51,11 @@
 @endsection
 @section('style')
 <style>
+    .tutup {
+        z-index: 5;
+        position: relative;
+    }
+
     .file-upload {
         display: -webkit-box;
         display: -webkit-flex;
@@ -523,14 +530,16 @@
             $('#tambahLink').click(function() {
                 var res = $("#res").val();
                 if ($.trim(res) != '') {
-                    var newDiv = $('<div class="row mb-4"><div class="col"><div class="card card-body"><div class="card-text"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><div class="md-form m-0"><i class="far fa-link prefix prefix grey-text"></i><textarea id="' + res + '" class="md-textarea form-control" name="' + res + '" rows="2"></textarea><label for="' + res + '">' + res + '</label></div></div></div></div></div>');
+                    var newDiv = $('<div class="row mb-4"><div class="col"><div class="card card-body"><div class="card-text"><button type="button"  class="close tutup" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><div class="md-form m-0"><i class="far fa-link prefix prefix grey-text"></i><textarea id="' + res + '" class="md-textarea form-control" name="' + res + '" rows="2"></textarea><label for="' + res + '">' + res + '</label></div></div></div></div></div>');
                     //newDiv.style.background = "#000";
                     $('.col-md-8').append(newDiv);
 
                 }
             });
+        });
 
-
+        $(document).on('click', '.close.tutup', function() {
+            $(this).closest('.row.mb-4').remove();
         });
 
     });
