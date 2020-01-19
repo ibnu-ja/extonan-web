@@ -1,8 +1,5 @@
 <?php
 
-use Image;
-use File;
-
 if (!function_exists('unggah')) {
     function unggah($file, $tempat, $dimensi = null, $namaFile = null)
     {

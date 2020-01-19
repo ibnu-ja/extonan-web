@@ -3,7 +3,7 @@
 @section('konten')
 <!-- Section: Inputs -->
 <section class="section mb-4">
-    <form method="post" action="{{url('anime/'.$anime->id.'/tambah/')}}" enctype="multipart/form-data">
+    <form method="post" action="{{url('episode/'.$anime->id.'/baru/')}}" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-8">
                 <div class="row mb-4">
@@ -13,7 +13,7 @@
                             <h5>{{url('anime/'.$anime->id.'/tambah/')}}</h5>
                             <div class="md-form input-group m-0">
                                 <input type="hidden" name="anime_id" value="{{ $anime->id ?? '' }}">
-                                <input type="hidden" name="episode_id" value="{{ $episode_id ?? '' }}">
+                                <input type="hidden" name="episode_id" value="{{ $epId ?? '' }}">
                                 <input type="text" aria-label="Episode" name="episode" class="form-control pl-0 mr-5 w-25" placeholder="Episode">
                                 <input type="text" aria-label="Resolusi" class="form-control pl-0" name="tambah" id="tambah" placeholder="Resolusi">
                                 <div class="input-group-append">
