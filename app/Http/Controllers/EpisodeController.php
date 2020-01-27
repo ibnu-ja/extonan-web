@@ -11,12 +11,15 @@ class EpisodeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->loc = 'storage/images';
+        $this->path = 'app/public/images';
+        $this->dimensions = [['1400', '450'], ['300', '425'], ['200', '300']];
     }
     public function tambah($id, $epId = null)
     {
         $anime = Anime::with('gambar', 'genres', 'episode')->findOrFail($id);
-        
-        return view('admin.anime.episode.tambah', compact('anime', '$epId'));
+              
+        return view('admin.anime.episode.tambah', compact('anime', 'epId'));
     }
     public function simpan(Request $request, $id)
     {
@@ -36,7 +39,8 @@ class EpisodeController extends Controller
 
         $episodes = new Episode();
         $this->validate($request, [
-            'episode' => 'string|required'
+            'episode' => 'string|required',
+            'thumbnail' => 'required|mimes:jpeg,jpg,png'
         ]);
 
         $episodes->episode = $request->episode;
