@@ -21,10 +21,13 @@ Route::group(['domain' => 'admin.extonan-web.test', 'middleware' => 'admin'], fu
     Route::get('/anime/tambah', 'AnimeController@tambah');
     Route::post('/anime/tambah', 'AnimeController@simpan');
     
+    Route::get('/anime/{id}/sunting', 'AnimeController@tambah');
+    Route::get('/anime/{id}/hapus', 'AnimeController@destroy');
+
     Route::get('/anime/{id}', 'AnimeController@tampil');
     Route::post('/anime/{id}', 'EpisodeController@simpan')->name('tambahEp');
-    Route::get('/episode/{id}/baru', 'EpisodeController@tambah');
-    Route::post('/episode/{id}/baru', 'EpisodeController@simpan');
+    Route::get('/episode/{anime_id}/baru', 'EpisodeController@tambah');
+    Route::post('/episode/{anime_id}/baru', 'EpisodeController@simpan');
     
 });
 
