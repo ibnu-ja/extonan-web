@@ -4,7 +4,7 @@
 /storage/*.key
 /vendor
 /resorces/fontawesome-pro
-/mdb-pro
+/resorces/mdb-pro
 .env
 .env.backup
 .phpunit.result.cache
@@ -13,3 +13,5 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 app/analytics/service_account_credentials_json.json
+/public/js
+/public/css
