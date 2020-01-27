@@ -1,17 +1,5 @@
 @extends('atak.admin')
 @section('judul', $anime->judul." - Manajemen")
-@section('style')
-<style>
-    .info {
-        font-weight: bold;
-        color: black;
-    }
-
-    .links {
-        border-top: none !important;
-    }
-</style>
-@endsection
 @section('konten')
 <!-- Section: Inputs -->
 <section class="section mb-4">
@@ -111,7 +99,6 @@
                 <table id="data" class="table " cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th style="width:10%;">Link</th>
                             <th>id</th>
                             <th>Episode</th>
                         </tr>
@@ -124,25 +111,12 @@
 <!-- Section: Inputs -->
 @endsection
 @section('script')
-<script src="/js/mdb-file-upload.min.js"></script>
-<script type="text/javascript" src=" {{ asset('js/addons/datatables.min.js') }}"></script>
-<script type="text/javascript" src=" {{ asset('js/addons/datatables-select.min.js') }}"></script>
-<script src="/js/mdb-file-upload.min.js"></script>
 <script>
     $(document).ready(function() {
         var table = $('#data').DataTable({
             processing: true,
             serverSide: true,
             columns: [{
-                    "className": 'details-control',
-                    "orderable": false,
-                    "data": null,
-                    "defaultContent": '',
-                    'render': function() {
-                        return "<i class='fa fa-plus-circle'></i>";
-                    }
-                },
-                {
                     data: 'id',
                     name: 'id'
                     // render: function(data, type, row) {
@@ -167,6 +141,9 @@
                     }
 
                 });
+            },
+            "createdRow": function(row, data, dataIndex) {
+                $(row).addClass('details-control');
             }
         });
 
@@ -175,12 +152,17 @@
             childContent += '<table style="width:100%" class="p-0">';
             $.each(d.link, function(i, elem) {
                 childContent += '<tr>';
-                var result = elem.link.split(',');
+                var result = elem.link.split("\n");
+                var data = "";
+                result.forEach(function(item, i) {
+                    var data2 = result[i].split(',');
+                    data += '<a href="' + data2[0] + '">' + data2[1] + '</a></br>';
+                });
                 if (i == 0) {
-                    childContent += '<td class="links">' + result[0] + ' ' + result[1] + '</td>';
+                    childContent += '<td class="links" style="width:40%">' + data + '</td>';
                     childContent += '<td class="links">' + elem.res + '</td>';
                 } else {
-                    childContent += '<td>' + result[0] + ' ' + result[1] + '</td>';
+                    childContent += '<td style="width:40%">' + data + '</td>';
                     childContent += '<td>' + elem.res + '</td>';
                 }
                 childContent += '</tr>';
@@ -188,18 +170,18 @@
             childContent += '</table>';
             return childContent;
         }
-        $('#data').on('click', 'td.details-control', function() {
-            var tr = $(this).closest('tr');
-            var row = table.row(tr);
+        $('#data').on('click', 'tr.details-control', function() {
+            // var tr = $(this).closest('tr');
+            var row = table.row(this);
 
             if (row.child.isShown()) {
                 // This row is already open - close it
                 row.child.hide();
-                tr.removeClass('shown');
+                $(this).removeClass('shown');
             } else {
                 // Open this row
                 row.child(format(row.data()), ['p-0']).show();
-                tr.addClass('shown');
+                $(this).addClass('shown');
             }
         });
         $('#ajaxModal').appendTo("body");

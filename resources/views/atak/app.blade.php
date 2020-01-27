@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
   <style>
     .fixed-sn .double-nav, .fixed-sn main, .fixed-sn footer {
     padding-left: initial;

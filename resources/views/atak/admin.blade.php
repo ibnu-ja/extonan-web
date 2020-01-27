@@ -53,31 +53,9 @@
   <!--Footer-->
   @include('admin.partials.footer')
   <!--/.Footer-->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-  </script>
-  <script src="{{ asset('js/app.js') }}" defer></script>
-  <script src="{{ asset('js/mdb.min.js') }}"></script>
+  <script src="{{ asset('js/app.js') }}"></script>
   <script>
-    // SideNav Initialization
     $(".button-collapse").sideNav();
-    new WOW().init();
-
-    $(document).ready(function() {
-      $("#navbarCari").on("keyup", function() {
-        if (this.value.length > 0) {
-          $("#menuSamping > li").hide().filter(function() {
-            return $(this).text().toLowerCase().indexOf($("#search").val().toLowerCase()) != -1;
-          }).show();
-        } else {
-          $("#menuSamping > li").show();
-        }
-      });
-    });
-    
-    $(document).on('click', function () {
-      $(".dropdown-menu").removeClass('show');
-    });
   </script>
   @yield('script')
 </body>
