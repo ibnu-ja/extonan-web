@@ -15,8 +15,6 @@ use Yajra\DataTables\DataTables;
 
 class AnimeController extends Controller
 {
-
-
     public $path;
     public $loc;
     public $dimensions;
@@ -45,8 +43,8 @@ class AnimeController extends Controller
                 return $row->musim . " " . $row->tahun;
             })
             ->addColumn('action', function ($row) {
-                $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editProduct">OK</a>';
-                $btn = $btn . ' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct">Delete</a>';
+                $btn = '<a href="'.url("/anime/".$row->id."/sunting").'" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editProduct">Sunting</a>';
+                $btn = $btn . ' <a href="'.url("/anime/".$row->id."/hapus").'" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct">Delete</a>';
                 return $btn;
             })
             ->rawColumns(['action'])
@@ -57,21 +55,17 @@ class AnimeController extends Controller
         }
 
         return view('admin.anime.index');
-
-        // return $results;
     }
 
-    public function tambah()
+    public function tambah($id = null)
     {
         $genres = GenreList::all();
-
-        return view('admin.anime.tambah', compact('genres'));
+        $anime = Anime::find($id);
+        return view('admin.anime.tambah', compact('genres', 'anime'));
     }
 
-    public function simpan(Request $request)
+    public function simpan(Request $request, $id = null)
     {
-        $animes = new Anime();
-
         $this->validate($request, [
             'judul' => 'required',
             'judul_alt' => 'required',
@@ -83,7 +77,10 @@ class AnimeController extends Controller
             'sinopsis' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png'
         ]);
-        $id = $this->createSlug(substr($this->shorten_string($request->get('judul'), 5), 0, 20));
+        $animes = Anime::firstOrNew([
+            'id' => $id,
+        ]);
+        $id = isset($id) ?: $this->createSlug(substr($this->shorten_string($request->get('judul'), 5), 0, 20));
         $animes->user_post_id = Auth::user()->id;
         $animes->judul = $request->get('judul');
         $animes->tahun = $request->get('tahun');
@@ -99,10 +96,13 @@ class AnimeController extends Controller
         if (!$saved) {
             App::abort(500, 'Error');
         }
-
         //gambar
         $lokasi = $this->path . '/' . $id;
-        unggah($request->image,  $lokasi);
+        unggahCanvas($request->image,  $lokasi);
+        foreach ($this->dimensions as $ukuran) {
+            unggahCanvas($request->image,  $lokasi, $ukuran);
+            $this->type[] = $ukuran[0] . ',' . $ukuran[1];
+        }
         //gambar database
         $animes->gambar()->create([
             'ext' => $request->file('image')->getClientOriginalExtension(),
@@ -115,7 +115,6 @@ class AnimeController extends Controller
         }
 
         //simpan
-
         return redirect('anime')->with('success', 'Tambah anime berhasil');
     }
 
@@ -133,37 +132,26 @@ class AnimeController extends Controller
         }
         return view('admin.anime.tampil', compact('anime', 'genres'));
     }
-
-    
-    public function cekDelet($tempat)
-    {
-        $lokasi = storage_path($tempat);
-        if (File::isDirectory($lokasi)) {
-            File::deleteDirectory($lokasi);
-        }
+    public function destroy($id) {
+        $anime = Anime::find($id);
+        $lokasi = $this->path . '/' . $anime->id;
+        hapusFolder($lokasi);
+        if ($anime) Anime::destroy($id);
+        return redirect()->back()->with('success', 'Berhasil hapus anime');
     }
-
     public function createSlug($title, $id = 0)
     {
-        // Normalize the title
         $slug = Str::slug($title, '-');
-
-        // Get any that could possibly be related.
-        // This cuts the queries down by doing it once.
         $allSlugs = $this->getRelatedSlugs($slug, $id);
-
-        // If we haven't used it before then we are all good.
         if (!$allSlugs->contains('id', $slug)) {
             return $slug;
         }
-        // Just append numbers like a savage until we find not used.
         for ($i = 1; $i <= 10; $i++) {
             $newSlug = $slug . '-' . $i;
             if (!$allSlugs->contains('slug', $newSlug)) {
                 return $newSlug;
             }
         }
-
         throw new \Exception('Can not create a unique slug');
     }
     protected function getRelatedSlugs($slug)
