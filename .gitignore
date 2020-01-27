@@ -15,3 +15,4 @@ yarn-error.log
 app/analytics/service_account_credentials_json.json
 /public/js
 /public/css
+/analytics/service_account_credentials_json
