@@ -3,7 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
-/resorces/fontawesome-pro
+/resources/fontawesome-pro
 /resorces/mdb-pro
 .env
 .env.backup
