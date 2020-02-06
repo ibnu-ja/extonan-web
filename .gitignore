@@ -4,7 +4,7 @@
 /storage/*.key
 /vendor
 /resources/fontawesome-pro/**
-/resorces/mdb-pro/**
+/resources/mdb-pro/**
 .env
 .env.backup
 .phpunit.result.cache
