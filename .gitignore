@@ -5,6 +5,7 @@
 /vendor
 /resources/fontawesome-pro
 /resources/mdb-pro
+/.git.bfg-report
 .env
 .env.backup
 .phpunit.result.cache
