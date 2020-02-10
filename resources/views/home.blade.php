@@ -51,7 +51,6 @@
   </div>
   <!-- Blog -->
   <div class="row mt-3 pt-3">
-
     <!-- Main listing -->
     <div class="col-lg-9 col-12 mt-1 white px-4 content ">
       <section class="pb-3 text-center text-lg-left">
@@ -68,91 +67,6 @@
                   <div class="mask rgba-white-slight"></div>
                 </a>
               </div>
-
-            </div>
-            <!-- Card -->
-          </div>
-          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
-            <!-- Card -->
-            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
-              <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
-                  alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-            </div>
-            <!-- Card -->
-          </div>
-          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
-            <!-- Card -->
-            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
-              <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
-                  alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-            </div>
-            <!-- Card -->
-          </div>
-          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
-            <!-- Card -->
-            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
-              <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
-                  alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-            </div>
-            <!-- Card -->
-          </div>
-          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
-            <!-- Card -->
-            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
-              <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
-                  alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-            </div>
-            <!-- Card -->
-          </div>
-          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
-            <!-- Card -->
-            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
-              <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
-                  alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-            </div>
-            <!-- Card -->
-          </div>
-          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
-            <!-- Card -->
-            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
-              <div class="view overlay">
-                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
-                  alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
             </div>
             <!-- Card -->
           </div>
@@ -169,11 +83,87 @@
             </div>
             <!-- Card -->
           </div>
-
+          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
+            <!-- Card -->
+            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
+              <div class="view overlay">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
+                <a href="#!">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+            </div>
+            <!-- Card -->
+          </div>
+          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
+            <!-- Card -->
+            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
+              <div class="view overlay">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
+                <a href="#!">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+            </div>
+            <!-- Card -->
+          </div>
+          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
+            <!-- Card -->
+            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
+              <div class="view overlay">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
+                <a href="#!">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+            </div>
+            <!-- Card -->
+          </div>
+          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
+            <!-- Card -->
+            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
+              <div class="view overlay">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
+                <a href="#!">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+            </div>
+            <!-- Card -->
+          </div>
+          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
+            <!-- Card -->
+            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
+              <div class="view overlay">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
+                <a href="#!">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+            </div>
+            <!-- Card -->
+          </div>
+          <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-2">
+            <!-- Card -->
+            <div class="card" data-toggle="tooltip" data-placement="bottom" title="MD on bottom">
+              <div class="view overlay">
+                <img class="card-img-top" src="http://placehold.it/300x400/9cc2ff/?text=Cover kartun"
+                  alt="Card image cap">
+                <a href="#!">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+            </div>
+            <!-- Card -->
+          </div>
 
         </div>
       </section>
-
       <!-- Section: Blog v.3 -->
       <section class="pb-3 text-center text-lg-left">
         <hr>
@@ -333,7 +323,6 @@
             <!-- Card -->
           </div>
 
-
           <!-- Pagination dark grey -->
           <nav class="">
             <ul class="pagination pg-darkgrey flex-center">
@@ -344,7 +333,6 @@
                   <span class="sr-only">Previous</span>
                 </a>
               </li>
-
               <!-- Numbers -->
               <li class="page-item active">
                 <a class="page-link">1</a>
@@ -361,7 +349,6 @@
               <li class="page-item">
                 <a class="page-link dark-grey-text">5</a>
               </li>
-
               <!-- Arrow right -->
               <li class="page-item">
                 <a class="page-link dark-grey-text" aria-label="Next">
@@ -373,7 +360,6 @@
           </nav>
           <!-- Pagination dark grey -->
         </div>
-
       </section>
       <!-- Section: Blog v.3 -->
       <section class="pb-3">
@@ -396,23 +382,18 @@
                 </div>
               </div>
               <!-- Grid column -->
-
               <!-- Grid column -->
               <div class="col-lg-8 col-8 ml-xl-8">
                 <!-- Grid row -->
                 <div class="row">
                   <!-- Grid column -->
                   <div class="col-4 col-md-6 text-sm-center text-md-left">
-
                   </div>
                   <!-- Grid column -->
-
                   <!-- Grid column -->
                   <div class="col text-sm-center text-md-right text-lg-right">
-
                   </div>
                   <!-- Grid column -->
-
                 </div>
                 <!-- Grid row -->
                 <p class="font-small dark-grey-text m-0 p-0">
@@ -437,7 +418,6 @@
                     id vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
                   </p>
                 </div>
-
                 <!-- Deep-orange -->
                 <button type="button" class="btn btn-deep-orange btn-rounded btn-sm float-right">Read more</button>
               </div>
@@ -458,23 +438,18 @@
                 </div>
               </div>
               <!-- Grid column -->
-
               <!-- Grid column -->
               <div class="col-lg-8 col-8 ml-xl-8">
                 <!-- Grid row -->
                 <div class="row">
                   <!-- Grid column -->
                   <div class="col-4 col-md-6 text-sm-center text-md-left">
-
                   </div>
                   <!-- Grid column -->
-
                   <!-- Grid column -->
                   <div class="col text-sm-center text-md-right text-lg-right">
-
                   </div>
                   <!-- Grid column -->
-
                 </div>
                 <!-- Grid row -->
                 <p class="font-small dark-grey-text m-0 p-0">
@@ -499,7 +474,6 @@
                     id vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
                   </p>
                 </div>
-
                 <!-- Deep-orange -->
                 <button type="button" class="btn btn-deep-orange btn-rounded btn-sm float-right">Read more</button>
               </div>
@@ -520,23 +494,18 @@
                 </div>
               </div>
               <!-- Grid column -->
-
               <!-- Grid column -->
               <div class="col-lg-8 col-8 ml-xl-8">
                 <!-- Grid row -->
                 <div class="row">
                   <!-- Grid column -->
                   <div class="col-4 col-md-6 text-sm-center text-md-left">
-
                   </div>
                   <!-- Grid column -->
-
                   <!-- Grid column -->
                   <div class="col text-sm-center text-md-right text-lg-right">
-
                   </div>
                   <!-- Grid column -->
-
                 </div>
                 <!-- Grid row -->
                 <p class="font-small dark-grey-text m-0 p-0">
@@ -561,7 +530,6 @@
                     id vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
                   </p>
                 </div>
-
                 <!-- Deep-orange -->
                 <button type="button" class="btn btn-deep-orange btn-rounded btn-sm float-right">Read more</button>
               </div>
@@ -582,23 +550,18 @@
                 </div>
               </div>
               <!-- Grid column -->
-
               <!-- Grid column -->
               <div class="col-lg-8 col-8 ml-xl-8">
                 <!-- Grid row -->
                 <div class="row">
                   <!-- Grid column -->
                   <div class="col-4 col-md-6 text-sm-center text-md-left">
-
                   </div>
                   <!-- Grid column -->
-
                   <!-- Grid column -->
                   <div class="col text-sm-center text-md-right text-lg-right">
-
                   </div>
                   <!-- Grid column -->
-
                 </div>
                 <!-- Grid row -->
                 <p class="font-small dark-grey-text m-0 p-0">
@@ -623,7 +586,6 @@
                     id vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
                   </p>
                 </div>
-
                 <!-- Deep-orange -->
                 <button type="button" class="btn btn-deep-orange btn-rounded btn-sm float-right">Read more</button>
               </div>
@@ -644,23 +606,18 @@
                 </div>
               </div>
               <!-- Grid column -->
-
               <!-- Grid column -->
               <div class="col-lg-8 col-8 ml-xl-8">
                 <!-- Grid row -->
                 <div class="row">
                   <!-- Grid column -->
                   <div class="col-4 col-md-6 text-sm-center text-md-left">
-
                   </div>
                   <!-- Grid column -->
-
                   <!-- Grid column -->
                   <div class="col text-sm-center text-md-right text-lg-right">
-
                   </div>
                   <!-- Grid column -->
-
                 </div>
                 <!-- Grid row -->
                 <p class="font-small dark-grey-text m-0 p-0">
@@ -685,7 +642,6 @@
                     id vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
                   </p>
                 </div>
-
                 <!-- Deep-orange -->
                 <button type="button" class="btn btn-deep-orange btn-rounded btn-sm float-right">Read more</button>
               </div>
@@ -706,23 +662,18 @@
                 </div>
               </div>
               <!-- Grid column -->
-
               <!-- Grid column -->
               <div class="col-lg-8 col-8 ml-xl-8">
                 <!-- Grid row -->
                 <div class="row">
                   <!-- Grid column -->
                   <div class="col-4 col-md-6 text-sm-center text-md-left">
-
                   </div>
                   <!-- Grid column -->
-
                   <!-- Grid column -->
                   <div class="col text-sm-center text-md-right text-lg-right">
-
                   </div>
                   <!-- Grid column -->
-
                 </div>
                 <!-- Grid row -->
                 <p class="font-small dark-grey-text m-0 p-0">
@@ -747,42 +698,32 @@
                     id vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
                   </p>
                 </div>
-
                 <!-- Deep-orange -->
                 <button type="button" class="btn btn-deep-orange btn-rounded btn-sm float-right">Read more</button>
               </div>
               <!-- Grid column -->
             </div>
           </div>
-
         </div>
         <!-- Grid row -->
-
         <hr>
       </section>
     </div>
     <!-- Main listing -->
-
     <!-- Sidebar -->
     <div class="col-lg-3 col-12 px-4 mt-1 blue-grey lighten-5 widget ">
-
       <p class="mt-4 font-weight-bold dark-grey-text text-center heading spacing">
         <strong>RILISAN HARI INI</strong>
       </p>
       <hr>
-
       <!-- Section: Recent posts -->
       <section class="section mb-5">
 
-
         <div class="post-border">
-
           <!-- Grid row -->
           <div class="row mt-4">
-
             <!-- Grid column -->
             <div class="col-5">
-
               <!-- Image -->
               <div class="view overlay z-depth-1 mb-3">
                 <img src="http://placehold.it/300x200/9cc2ff/?text=nimu" class="img-fluid" alt="Post">
@@ -790,13 +731,10 @@
                   <div class="mask rgba-white-slight"></div>
                 </a>
               </div>
-
             </div>
             <!-- Grid column -->
-
             <!-- Second column -->
             <div class="col-7 mb-1">
-
               <!-- Post data -->
               <div class="">
                 <p class="mb-1">
@@ -806,23 +744,16 @@
                   <em>July 22, 2017</em>
                 </p>
               </div>
-
             </div>
             <!-- Second column -->
-
           </div>
           <!-- Grid row -->
-
         </div>
-
         <div class="post-border">
-
           <!-- Grid row -->
           <div class="row">
-
             <!-- Grid column -->
             <div class="col-5">
-
               <!-- Image -->
               <div class="view overlay z-depth-1 mb-3">
                 <img src="http://placehold.it/300x200/9cc2ff/?text=nimu" class="img-fluid" alt="Post">
@@ -830,13 +761,10 @@
                   <div class="mask rgba-white-slight"></div>
                 </a>
               </div>
-
             </div>
             <!-- Grid column -->
-
             <!-- Second column -->
             <div class="col-7 mb-1">
-
               <!-- Post data -->
               <div class="">
                 <p class="mb-1">
@@ -845,25 +773,17 @@
                 <p class="font-small dark-grey-text">
                   <em>July 22, 2017</em>
                 </p>
-
               </div>
-
             </div>
             <!-- Second column -->
-
           </div>
           <!-- Grid row -->
-
         </div>
-
         <div class="post-border">
-
           <!-- Grid row -->
           <div class="row">
-
             <!-- Grid column -->
             <div class="col-5">
-
               <!-- Image -->
               <div class="view overlay z-depth-1 mb-3">
                 <img src="http://placehold.it/300x200/9cc2ff/?text=nimu" class="img-fluid" alt="Post">
@@ -871,13 +791,10 @@
                   <div class="mask rgba-white-slight"></div>
                 </a>
               </div>
-
             </div>
             <!-- Grid column -->
-
             <!-- Second column -->
             <div class="col-7 mb-1">
-
               <!-- Post data -->
               <div class="">
                 <p class="mb-1">
@@ -887,23 +804,16 @@
                   <em>July 22, 2017</em>
                 </p>
               </div>
-
             </div>
             <!-- Second column -->
-
           </div>
           <!-- Grid row -->
-
         </div>
-
         <div class="post-border">
-
           <!-- Grid row -->
           <div class="row">
-
             <!-- Grid column -->
             <div class="col-5">
-
               <!-- Image -->
               <div class="view overlay z-depth-1 mb-3">
                 <img src="http://placehold.it/300x200/9cc2ff/?text=nimu" class="img-fluid" alt="Post">
@@ -911,13 +821,10 @@
                   <div class="mask rgba-white-slight"></div>
                 </a>
               </div>
-
             </div>
             <!-- Grid column -->
-
             <!-- Second column -->
             <div class="col-7 mb-1">
-
               <!-- Post data -->
               <div class="">
                 <p class="mb-1">
@@ -926,25 +833,17 @@
                 <p class="font-small dark-grey-text">
                   <em>July 22, 2017</em>
                 </p>
-
               </div>
-
             </div>
             <!-- Second column -->
-
           </div>
           <!-- Grid row -->
-
         </div>
-
         <div class="post-border">
-
           <!-- Grid row -->
           <div class="row">
-
             <!-- Grid column -->
             <div class="col-5">
-
               <!-- Image -->
               <div class="view overlay z-depth-1 mb-3">
                 <img src="http://placehold.it/300x200/9cc2ff/?text=nimu" class="img-fluid" alt="Post">
@@ -952,13 +851,10 @@
                   <div class="mask rgba-white-slight"></div>
                 </a>
               </div>
-
             </div>
             <!-- Grid column -->
-
             <!-- Second column -->
             <div class="col-7 mb-1">
-
               <!-- Post data -->
               <div class="">
                 <p class="mb-1">
@@ -967,36 +863,26 @@
                 <p class="font-small dark-grey-text">
                   <em>July 22, 2017</em>
                 </p>
-
               </div>
-
             </div>
             <!-- Second column -->
-
           </div>
           <!-- Grid row -->
-
         </div>
-
       </section>
       <!-- Section: Recent posts -->
-
       <!-- Title -->
       <hr>
       <p class="font-weight-bold dark-grey-text text-center heading spacing">
         <strong>MUSIM</strong>
       </p>
       <hr>
-
       <!-- Archive -->
       <section class="archive mb-5">
-
         <!-- Grid row -->
         <div class="row">
-
           <!-- Grid column -->
           <div class="col-md-12 text-center">
-
             <!-- List -->
             <ul class="list-unstyled mt-3">
               <li>
@@ -1011,47 +897,36 @@
               </li>
             </ul>
             <!-- List -->
-
           </div>
           <!-- Grid column -->
-
         </div>
         <!-- Grid row -->
-
       </section>
       <!-- Archive -->
       <!-- Title -->
       <hr>
-
       <!-- Archive -->
       <section class="mb-5">
-
         <!-- Grid row -->
         <div class="row">
-
           <!-- Grid column -->
           <div class="col-md-12">
 
-
           </div>
           <!-- Grid column -->
-
         </div>
         <!-- Grid row -->
-
       </section>
       <!-- Archive -->
-
     </div>
     <!-- Sidebar -->
-
   </div>
   <!-- Blog -->
-
 </div>
 @endsection
 @section('script')
 <!-- Custom scripts -->
+<script src="{{ asset('js/slick.min.js') }}"></script>
 <script type="text/javascript">
   // Animation
   Ellipsis({
@@ -1063,7 +938,6 @@
     portrait: 4, //default no change, put a number of lines if you want a different number of lines in portrait mode,
     break_word: true //default the ellipsis can truncate words
   });
-
   $('.trending').slick({
     arrows: true,
     autoplay: true,

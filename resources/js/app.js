@@ -10,7 +10,6 @@ require('datatables.net');
 require('datatables.net-select');
 require('datatables.net-bs4');
 require('ellipsis.js');
-require('slick-carousel');
 
 window.wow.init();
 require('../mdb-pro/js/mdb-file-upload.min.js');
