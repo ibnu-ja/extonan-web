@@ -71,7 +71,7 @@
       </div>
     </div>
   </footer>
-  
+  <script src="{{ asset('js/app.js') }}"></script>
   <script type="text/javascript">
     $(document).on('click', function() {
       $(".dropdown-menu").removeClass('show');
