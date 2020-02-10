@@ -563,7 +563,7 @@ nav {
   background: -webkit-linear-gradient(to right, rgba(204, 83, 51, 0.6), rgba(35, 7, 77, 0.6));
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, rgba(204, 83, 51, 0.6), rgba(35, 7, 77, 0.6)),
-  url("{{asset('/images/banner.jpg')}}");
+  url("/images/banner.jpg");
 
   background-blend-mode: darken;
 
@@ -606,3 +606,5 @@ nav {
 .genre {
   font-size: 1rem;
 }
+
+//main page

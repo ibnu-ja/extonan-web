@@ -12,16 +12,19 @@
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <style>
-    .fixed-sn .double-nav, .fixed-sn main, .fixed-sn footer {
-    padding-left: initial;
-}
+    .fixed-sn .double-nav,
+    .fixed-sn main,
+    .fixed-sn footer {
+      padding-left: initial;
+    }
   </style>
   @yield('style')
 </head>
+
 <body class="light-blue-skin bg">
   <!-- Navigation -->
   <header>
-    
+
     @yield('header')
   </header>
   <!-- Navigation -->
@@ -68,23 +71,11 @@
       </div>
     </div>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-  </script>
-  <script src="{{ asset('js/app.js') }}" defer></script>
-  <script src="{{ asset('js/mdb.min.js') }}"></script>
-  <script src="{{ asset('js/slick.min.js') }}"></script>
-  <script src="{{ asset('js/ellipsis.js') }}"></script>
+  
   <script type="text/javascript">
-        // Animation init
-    new WOW().init();
-    
-    $(document).on('click', function () {
+    $(document).on('click', function() {
       $(".dropdown-menu").removeClass('show');
     });
-
   </script>
   @yield('script')
 </body>
