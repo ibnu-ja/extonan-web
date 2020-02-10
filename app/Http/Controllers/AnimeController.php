@@ -9,8 +9,6 @@ use App\Anime;
 use App\Episode;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-use Image;
-use File;
 use Yajra\DataTables\DataTables;
 
 class AnimeController extends Controller
@@ -53,7 +51,6 @@ class AnimeController extends Controller
         if (request()->ajax()) {
             return $results;
         }
-
         return view('admin.anime.index');
     }
 
@@ -123,7 +120,7 @@ class AnimeController extends Controller
         $anime = Anime::with('gambar', 'genres', 'episode')->findOrFail($id);
         $resultstr = array();
         foreach ($anime->genres as $result) {
-            $resultstr[] = ucfirst($result->genre);
+            $resultstr[] = GenreList::findOrFail($result->genre)->name;
         }
         $genres = implode(", ", $resultstr);
         $episodes = DataTables::of(Episode::with('link')->where('anime_id', '=', $anime->id))->make(true);
