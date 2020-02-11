@@ -26,7 +26,19 @@ class AnimeController extends Controller
         $this->dimensions = [['1400', '450'], ['300', '425'], ['200', '300']];
     }
 
-    public function index()
+    public function index(Request $request)
+    {
+        if($request->ajax()){
+            $view = view('admin.anime.index')->renderSections();
+            return response()->json([
+                'title' => $view['judul'],
+                'content' => $view['konten'],
+                'script' => $view['script'],
+            ]);
+        }
+        return view('admin.anime.index');
+    }
+    public function data()
     {
         $results = Datatables::of(Anime::query()->with('genres')->get())
             ->addColumn('genres', function ($row) {
@@ -51,13 +63,22 @@ class AnimeController extends Controller
         if (request()->ajax()) {
             return $results;
         }
-        return view('admin.anime.index');
     }
 
-    public function tambah($id = null)
+    public function tambah(Request $request, $id = null)
     {
         $genres = GenreList::all();
         $anime = Anime::find($id);
+
+        if($request->ajax()){
+            $view = view('admin.anime.tambah', compact('genres', 'anime'))->renderSections();
+            return response()->json([
+                'title' => $view['judul'],
+                'content' => $view['konten'],
+                'script' => $view['script'],
+            ]);
+        }
+        
         return view('admin.anime.tambah', compact('genres', 'anime'));
     }
 
