@@ -18,6 +18,7 @@ Route::group(['domain' => 'admin.extonan-web.test', 'middleware' => 'admin'], fu
     // Route::any('/adminer', '\Aranyasen\LaravelAdminer\AdminerController@index');
     Route::get('/', 'AnimeController@index');
     Route::get('/anime', 'AnimeController@index');
+    Route::get('/anime/data', 'AnimeController@data');
     Route::get('/anime/tambah', 'AnimeController@tambah');
     Route::post('/anime/tambah', 'AnimeController@simpan');
     
@@ -28,7 +29,8 @@ Route::group(['domain' => 'admin.extonan-web.test', 'middleware' => 'admin'], fu
     Route::post('/anime/{id}', 'EpisodeController@simpan')->name('tambahEp');
     Route::get('/episode/{anime_id}/baru', 'EpisodeController@tambah');
     Route::post('/episode/{anime_id}/baru', 'EpisodeController@simpan');
-    
 });
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('nonton/{anime_id}', 'HomeController@anime')->name('anime');

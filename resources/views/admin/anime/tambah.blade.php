@@ -141,7 +141,7 @@
 @endsection
 
 @section('script')
-<script>
+<script id="new">
     $(document).ready(function() {
         $('.datepicker').pickadate();
         $('.mdb-select').material_select();

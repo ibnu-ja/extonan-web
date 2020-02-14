@@ -2,7 +2,7 @@
 @section('judul', 'Indeks - Anime')
 @section('konten')
 <!-- Section: Inputs -->
-<section class="section mb-4">
+<section class="section mb-4" id="content">
   <div class="card card-body">
     <table id="data" class="table " cellspacing="0" width="100%">
       <thead>
@@ -21,12 +21,12 @@
 <!-- Section: Inputs -->
 @endsection
 @section('script')
-<script>
+<script id="new">
   $(document).ready(function() {
     $('#data').DataTable({
       processing: true,
       serverSide: true,
-      ajax: "{{ url('anime') }}",
+      ajax: "{{ url('anime/data') }}",
       columns: [{
           data: 'judul',
           name: 'judul',

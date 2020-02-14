@@ -42,10 +42,12 @@
   </header>
   <!--/.Double navigation-->
   <!--Main layout-->
-  <main>
+  <main id="aaaa">
     <div class="container-fluid">
       @include('admin.partials.form-status')
-      @yield('konten')
+      <div id="content">
+        @yield('konten')
+      </div>
     </div>
   </main>
   <!--/Main layout-->
@@ -53,8 +55,38 @@
   @include('admin.partials.footer')
   <!--/.Footer-->
   <script src="{{ asset('js/app.js') }}"></script>
-  <script>
+  <script id="ori">
     $(".button-collapse").sideNav();
+
+    $("#slide-out a").on('click', function(event) {
+      if ($(this).attr("href") !== undefined) {
+        event.preventDefault();
+        var url = $(this).attr("href");
+        $.ajax({
+          url: url,
+          cache: false,
+          // beforeSend: function() {
+          //     $(".loaderOverlay").fadeIn();
+          // },
+          success: function(html) {
+            // $('#new').remove();
+            // $('body').append(html.script); 
+            $("#content").html(html.content);
+            document.title = html.title;
+            $('#ori').append(html.script);
+
+            // $('#new').html(html.script);
+
+            // document.body.appendChild(html.script);
+            // alert(html.script);
+            // alert(url);
+            // $(".loaderOverlay").fadeOut();
+            // pageCvInit();
+            // initAjaxHeadline();
+          }
+        });
+      }
+    });
   </script>
   @yield('script')
 </body>
