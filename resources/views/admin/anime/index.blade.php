@@ -26,7 +26,7 @@
     $('#data').DataTable({
       processing: true,
       serverSide: true,
-      ajax: "{{ url('anime') }}",
+      ajax: "{{ url('anime/data') }}",
       columns: [{
           data: 'judul',
           name: 'judul',

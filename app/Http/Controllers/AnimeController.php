@@ -26,16 +26,8 @@ class AnimeController extends Controller
         $this->dimensions = [['1400', '450'], ['300', '425'], ['200', '300']];
     }
 
-    public function index(Request $request)
+    public function index()
     {
-        if($request->ajax()){
-            $view = view('admin.anime.index')->renderSections();
-            return response()->json([
-                'title' => $view['judul'],
-                'content' => $view['konten'],
-                'script' => $view['script'],
-            ]);
-        }
         return view('admin.anime.index');
     }
     public function data()
