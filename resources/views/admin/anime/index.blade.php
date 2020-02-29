@@ -59,6 +59,10 @@
           searchable: false
         },
       ],
+
+      "initComplete": function() {
+        $('[data-toggle="tooltip"]').tooltip();
+      },
       "language": {
         "sEmptyTable": "Tidak ada data yang tersedia pada tabel ini",
         "sProcessing": "Sedang memproses ....",
@@ -77,6 +81,7 @@
           "sLast": "Terakhir"
         }
       },
+
     });
     $('#data_filter.dataTables_filter>label').addClass('md-form md-form m-0 p-0 wave');
   })

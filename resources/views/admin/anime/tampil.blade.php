@@ -34,53 +34,49 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-7 col-lg-9 col-md-8">
             <div class="row">
                 <div class="col mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h5>Sinopsis</h5>
-                            </div>
-                            <div class="card-text">
-                                <p style="white-space: pre-line">{{$anime->sinopsis}}</p>
-                            </div>
-
+                    <div class="card card-body">
+                        <div class="card-title">
+                            <h5>Sinopsis</h5>
                         </div>
+                        <div class="card-text">
+                            <p style="white-space: pre-line">{{$anime->sinopsis}}</p>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h5>Info</h5>
-                            </div>
-                            <div class="card-text">
-                                <div><span class="info">Judul Alt: </span>
-                                    @php
-                                    $juduls = preg_split('/\r\n|\r|\n/', $anime->judul_alt);
-                                    @endphp
-                                    @foreach ($juduls as $judul)
-                                    @if ($loop->last)
-                                    {{$judul}}
-                                    @else
-                                    {{$judul}},
-                                    @endif
-                                    @endforeach
-                                </div>
-                                <div><span class="info">Musim: </span>{{$anime->musim}} {{$anime->tahun}}</div>
-                                <div><span class="info">Genre: </span>{{$genres}}</div>
-                                <div><span class="info">Skor: </span>{{$anime->skor}}</div>
-                            </div>
-
+                    <div class="card card-body">
+                        <div class="card-title">
+                            <h5>Info</h5>
                         </div>
+                        <div class="card-text">
+                            <div><span class="info">Judul Alt: </span>
+                                @php
+                                $juduls = preg_split('/\r\n|\r|\n/', $anime->judul_alt);
+                                @endphp
+                                @foreach ($juduls as $judul)
+                                @if ($loop->last)
+                                {{$judul}}
+                                @else
+                                {{$judul}},
+                                @endif
+                                @endforeach
+                            </div>
+                            <div><span class="info">Musim: </span>{{$anime->musim}} {{$anime->tahun}}</div>
+                            <div><span class="info">Genre: </span>{{$genres}}</div>
+                            <div><span class="info">Skor: </span>{{$anime->skor}}</div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col mb-4">
             <div class="card">
                 <div class="card-body">
                     @php
@@ -99,8 +95,9 @@
                 <table id="data" class="table " cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>id</th>
-                            <th>Episode</th>
+                            <th style="width: 10%">id</th>
+                            <th class="rilistable">Episode</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                 </table>
@@ -118,16 +115,18 @@
             serverSide: true,
             columns: [{
                     data: 'id',
-                    name: 'id'
-                    // render: function(data, type, row) {
-                    //     return "<a class='test' href='/anime/" + row.id + "'>" + row.judul + "</a>"
+                    name: 'id',
                 },
                 {
                     data: 'episode',
                     name: 'episode',
-                    // searchable: true,
-                    // visible: false
-                }
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                },
             ],
             ajax: function(data, callback, settings) {
                 settings.jqXHR = $.ajax({
@@ -144,6 +143,9 @@
             },
             "createdRow": function(row, data, dataIndex) {
                 $(row).addClass('details-control');
+            },
+            "initComplete": function() {
+                $('[data-toggle="tooltip"]').tooltip();
             }
         });
 
@@ -159,10 +161,10 @@
                     data += '<a href="' + data2[0] + '">' + data2[1] + '</a></br>';
                 });
                 if (i == 0) {
-                    childContent += '<td class="links" style="width:40%">' + data + '</td>';
+                    childContent += '<td class="links" style="width:60%">' + data + '</td>';
                     childContent += '<td class="links">' + elem.res + '</td>';
                 } else {
-                    childContent += '<td style="width:40%">' + data + '</td>';
+                    childContent += '<td style="width:60%">' + data + '</td>';
                     childContent += '<td>' + elem.res + '</td>';
                 }
                 childContent += '</tr>';
@@ -193,39 +195,8 @@
             }
         });
 
-        $('#ajaxModal').click(function() {
-            $('#episode_id').val('');
-            $('#sub_id').val('');
-            $('#480p_id').val('');
-            $('#720p_id').val('');
-            $('#1080p_id').val('');
-            $('#modelHeading').html("Tambah Episode Baru");
-            $('#ajaxModal').modal('show');
-        });
-
         $('#jadwal').click(function() {
             $('#jadwal').modal('show');
-        });
-
-        $('#kirim').click(function(e) {
-            e.preventDefault();
-            $(this).html('Sending..');
-            table.ajax.reload();
-            $.ajax({
-                data: $('#episodeForm').serialize(),
-                url: "{{ route('tambahEp', ['id' => $anime->id]) }}",
-                type: "POST",
-                dataType: 'json',
-                success: function(data) {
-                    $('#episodeForm').trigger("reset");
-                    $('#ajaxModal').modal('hide');
-                    $('.modal-backdrop').remove();
-                },
-                error: function(data) {
-                    console.log('Error:', data);
-                    $('#kirim').html('Save Changes');
-                }
-            });
         });
 
         $('.datepicker').pickadate({
@@ -240,12 +211,7 @@
         $('.timepicker').pickatime();
 
         $('.file-upload').file_upload();
-
-        $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
-        });
-
-
+        $('#data_filter.dataTables_filter>label').addClass('md-form md-form m-0 p-0 wave');
     });
 </script>
 @endsection
