@@ -17,6 +17,8 @@ class CreateEpisodesTable extends Migration
             $table->bigIncrements('id');
             $table->string('episode');
             $table->string('anime_id');
+            $table->string('thumbnail');
+            $table->string('ext');
             $table->foreign('anime_id')->references('id')->on('animes')->onDelete('cascade');
             $table->timestamps();
         });
