@@ -11,41 +11,32 @@ class EpisodeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->loc = 'storage/images';
-        $this->path = 'app/public/images';
-        $this->dimensions = [['1400', '450'], ['300', '425'], ['200', '300']];
     }
-    public function tambah($id, $epId = null)
+    public function tambah($anime_id, $id = null)
     {
-        $anime = Anime::with('gambar', 'genres', 'episode')->findOrFail($id);
-              
-        return view('admin.anime.episode.tambah', compact('anime', 'epId'));
+        $ep = Episode::with('link', 'anime')->find($id);
+        $anime = Anime::select('id', 'judul')->findOrFail($anime_id);
+        
+        return view('admin.anime.episode.tambah', compact('ep', 'anime'));
     }
-    public function simpan(Request $request, $id)
+    public function simpan(Request $request, $anime_id, $id = null)
     {
-
-        // echo $request->episode;
-        // $link = $request->link;
-        // $res = $request->res;
-        // foreach ($link as $key => $n) {
-        //     echo $res[$key]."</br>";
-        //     $links = explode(PHP_EOL, $n);
-        //     foreach ($links as $data) {
-        //         $linkks = explode("|", $data);
-        //         echo "<a href=".$linkks[0].">".$linkks[1]."</a> </br>";
-        //     }
-        // }
-        // return $request->except('tambah');
-
-        $episodes = new Episode();
         $this->validate($request, [
             'episode' => 'string|required',
             'thumbnail' => 'required|mimes:jpeg,jpg,png'
         ]);
+        $episodes = Episode::firstOrNew([
+            'id' => $id,
+        ]);
 
         $episodes->episode = $request->episode;
         $episodes->anime_id = $request->anime_id;
+        $lokasi = 'app/public/images/' . $request->anime_id . '/thumbnail/' . $id;
+        $episodes->thumbnail = 'storage/images/' . $request->anime_id . '/thumbnail/' . $id;
+        $episodes->ext = $request->file('thumbnail')->getClientOriginalExtension();
         $episodes->save();
+
+        unggahResizeNama($request->thumbnail,  $lokasi, ['848', '480'], $episodes->id);
 
         if ($link = $request->link) {
             $res = $request->res;
@@ -54,7 +45,8 @@ class EpisodeController extends Controller
                     ->create(
                         [
                             'link' => $n,
-                            'res' => $res[$key]
+                            'stream' => 0,
+                            'res' => $res[$key],
                         ]
                     );
             }
