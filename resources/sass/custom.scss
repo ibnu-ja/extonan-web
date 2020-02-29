@@ -1,3 +1,9 @@
+
+
+.rilistable {
+  width: 43%;
+}
+
 h1,
 h2,
 h3,
@@ -6,9 +12,8 @@ h5,
 h6,
 nav,
 .heading {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
-
 
 .picker__box .picker__header .picker__nav--prev:before,
 .picker__box .picker__header .picker__nav--next:before,
@@ -26,14 +31,14 @@ table.dataTable thead .sorting_desc_disabled:after {
 }
 
 table.table a {
-  color          : #007bff;
+  color: #007bff;
   text-decoration: none;
 }
 
 table.table a:hover {
-  color             : #0056b3;
+  color: #0056b3;
   -webkit-transition: all 0.2s ease-in-out;
-  transition        : all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 table td {
@@ -62,31 +67,31 @@ table td {
   padding: 5px 10px;
   font-size: 1rem;
   text-align: center;
-  color: #ccc
+  color: #ccc;
 }
 
 .file-upload-wrapper .card.card-body.has-error .file-upload-message .file-upload-error,
 .file-upload-wrapper .card.card-body.has-preview .btn.btn-sm.btn-danger {
-  display: block
+  display: block;
 }
 
 .file-upload i {
-  font-size: 3rem
+  font-size: 3rem;
 }
 
 .file-upload .mask.rgba-stylish-slight {
   opacity: 0;
-  -webkit-transition: all .15s linear;
-  -o-transition: all .15s linear;
-  transition: all .15s linear
+  -webkit-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
 }
 
 .file-upload:hover .mask.rgba-stylish-slight {
-  opacity: .8
+  opacity: 0.8;
 }
 
 .file-upload-wrapper .card.card-body.has-error {
-  border-color: #f34141
+  border-color: #f34141;
 }
 
 .file-upload-wrapper .card.card-body.has-error:hover .file-upload-errors-container {
@@ -94,26 +99,26 @@ table td {
   opacity: 1;
   -webkit-transition-delay: 0s;
   -o-transition-delay: 0s;
-  transition-delay: 0s
+  transition-delay: 0s;
 }
 
 .file-upload-wrapper .card.card-body.disabled input {
-  cursor: not-allowed
+  cursor: not-allowed;
 }
 
 .file-upload-wrapper .card.card-body.disabled:hover {
   background-image: none;
   -webkit-animation: none;
-  animation: none
+  animation: none;
 }
 
 .file-upload-wrapper .card.card-body.disabled .file-upload-message {
-  opacity: .5;
-  text-decoration: line-through
+  opacity: 0.5;
+  text-decoration: line-through;
 }
 
 .file-upload-wrapper .card.card-body.disabled .file-upload-infos-message {
-  display: none
+  display: none;
 }
 
 .file-upload-wrapper .card.card-body input {
@@ -126,7 +131,7 @@ table td {
   width: 100%;
   opacity: 0;
   cursor: pointer;
-  z-index: 5
+  z-index: 5;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-message {
@@ -134,22 +139,22 @@ table td {
   top: 50px;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%)
+  transform: translateY(-50%);
 }
 
 .file-upload-wrapper .card.card-body .file-upload-message span.file-icon {
   font-size: 50px;
-  color: #ccc
+  color: #ccc;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-message p {
-  margin: 5px 0 0
+  margin: 5px 0 0;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-message p.file-upload-error {
   color: #f34141;
   font-weight: 700;
-  display: none
+  display: none;
 }
 
 .file-upload-wrapper .card.card-body .btn.btn-sm.btn-danger {
@@ -159,9 +164,9 @@ table td {
   z-index: 7;
   top: 10px;
   right: 10px;
-  -webkit-transition: all .15s linear;
-  -o-transition: all .15s linear;
-  transition: all .15s linear
+  -webkit-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-preview {
@@ -177,18 +182,18 @@ table td {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  text-align: center
+  text-align: center;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-preview .file-upload-render .file-upload-preview-img {
   width: 100%;
   height: 100%;
   background-color: #fff;
-  -webkit-transition: border-color .15s linear;
-  -o-transition: border-color .15s linear;
-  transition: border-color .15s linear;
+  -webkit-transition: border-color 0.15s linear;
+  -o-transition: border-color 0.15s linear;
+  transition: border-color 0.15s linear;
   -o-object-fit: cover;
-  object-fit: cover
+  object-fit: cover;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-preview .file-upload-render i {
@@ -212,14 +217,14 @@ table td {
   margin-top: 10px;
   text-transform: uppercase;
   font-weight: 900;
-  letter-spacing: -.03em;
+  letter-spacing: -0.03em;
   font-size: 1rem;
   color: #fff;
   width: 42px;
   white-space: nowrap;
   overflow: hidden;
   -o-text-overflow: ellipsis;
-  text-overflow: ellipsis
+  text-overflow: ellipsis;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-preview .file-upload-infos {
@@ -229,11 +234,11 @@ table td {
   right: 0;
   bottom: 0;
   z-index: 3;
-  background: rgba(0, 0, 0, .7);
+  background: rgba(0, 0, 0, 0.7);
   opacity: 0;
-  -webkit-transition: opacity .15s linear;
-  -o-transition: opacity .15s linear;
-  transition: opacity .15s linear
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-preview .file-upload-infos .file-upload-infos-inner {
@@ -246,9 +251,9 @@ table td {
   backface-visibility: hidden;
   width: 100%;
   padding: 0 20px;
-  -webkit-transition: all .2s ease;
-  -o-transition: all .2s ease;
-  transition: all .2s ease
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-preview .file-upload-infos .file-upload-infos-inner p {
@@ -263,18 +268,28 @@ table td {
   color: #fff;
   text-align: center;
   line-height: 25px;
-  font-weight: 700
+  font-weight: 700;
 }
 
-.file-upload-wrapper .card.card-body .file-upload-preview .file-upload-infos .file-upload-infos-inner p.file-upload-infos-message {
+.file-upload-wrapper
+  .card.card-body
+  .file-upload-preview
+  .file-upload-infos
+  .file-upload-infos-inner
+  p.file-upload-infos-message {
   margin-top: 15px;
   padding-top: 15px;
   font-size: 12px;
   position: relative;
-  opacity: .5
+  opacity: 0.5;
 }
 
-.file-upload-wrapper .card.card-body .file-upload-preview .file-upload-infos .file-upload-infos-inner p.file-upload-infos-message::before {
+.file-upload-wrapper
+  .card.card-body
+  .file-upload-preview
+  .file-upload-infos
+  .file-upload-infos-inner
+  p.file-upload-infos-message::before {
   content: "";
   position: absolute;
   top: 0;
@@ -284,41 +299,46 @@ table td {
   transform: translate(-50%, 0);
   background: #fff;
   width: 30px;
-  height: 2px
+  height: 2px;
 }
 
 .file-upload-wrapper .card.card-body:hover .btn.btn-sm.btn-danger,
 .file-upload-wrapper .card.card-body:hover .file-upload-preview .file-upload-infos {
-  opacity: 1
+  opacity: 1;
 }
 
 .file-upload-wrapper .card.card-body:hover .file-upload-preview .file-upload-infos .file-upload-infos-inner {
-  margin-top: -5px
+  margin-top: -5px;
 }
 
 .file-upload-wrapper .card.card-body.touch-fallback {
-  height: auto !important
+  height: auto !important;
 }
 
 .file-upload-wrapper .card.card-body.touch-fallback:hover {
   background-image: none;
   -webkit-animation: none;
-  animation: none
+  animation: none;
 }
 
 .file-upload-wrapper .card.card-body.touch-fallback .file-upload-preview {
   position: relative;
-  padding: 0
+  padding: 0;
 }
 
 .file-upload-wrapper .card.card-body.touch-fallback .file-upload-preview .file-upload-render {
   display: block;
-  position: relative
+  position: relative;
 }
 
-.file-upload-wrapper .card.card-body.touch-fallback .file-upload-preview .file-upload-infos .file-upload-infos-inner p.file-upload-infos-message::before,
+.file-upload-wrapper
+  .card.card-body.touch-fallback
+  .file-upload-preview
+  .file-upload-infos
+  .file-upload-infos-inner
+  p.file-upload-infos-message::before,
 .file-upload-wrapper .card.card-body.touch-fallback.has-preview .file-upload-message {
-  display: none
+  display: none;
 }
 
 .file-upload-wrapper .card.card-body.touch-fallback .file-upload-preview .file-upload-render .file-upload-font-file {
@@ -327,25 +347,29 @@ table td {
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
   top: 0;
-  left: 0
+  left: 0;
 }
 
-.file-upload-wrapper .card.card-body.touch-fallback .file-upload-preview .file-upload-render .file-upload-font-file::before {
+.file-upload-wrapper
+  .card.card-body.touch-fallback
+  .file-upload-preview
+  .file-upload-render
+  .file-upload-font-file::before {
   margin-top: 30px;
-  margin-bottom: 30px
+  margin-bottom: 30px;
 }
 
 .file-upload-wrapper .card.card-body.touch-fallback .file-upload-preview .file-upload-render img {
   position: relative;
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
-  transform: translate(0, 0)
+  transform: translate(0, 0);
 }
 
 .file-upload-wrapper .card.card-body.touch-fallback .file-upload-preview .file-upload-infos {
   position: relative;
   opacity: 1;
-  background: 0 0
+  background: 0 0;
 }
 
 .file-upload-wrapper .card.card-body.touch-fallback .file-upload-preview .file-upload-infos .file-upload-infos-inner {
@@ -354,7 +378,7 @@ table td {
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
-  padding: 5px 90px 5px 0
+  padding: 5px 90px 5px 0;
 }
 
 .file-upload-wrapper .card.card-body.touch-fallback .file-upload-preview .file-upload-infos .file-upload-infos-inner p {
@@ -368,32 +392,41 @@ table td {
   text-overflow: ellipsis;
   color: #777;
   text-align: left;
-  line-height: 25px
+  line-height: 25px;
 }
 
-.file-upload-wrapper .card.card-body.touch-fallback .file-upload-preview .file-upload-infos .file-upload-infos-inner p.file-upload-infos-message {
+.file-upload-wrapper
+  .card.card-body.touch-fallback
+  .file-upload-preview
+  .file-upload-infos
+  .file-upload-infos-inner
+  p.file-upload-infos-message {
   margin-top: 0;
   padding-top: 0;
   font-size: 18px;
   position: relative;
-  opacity: 1
+  opacity: 1;
 }
 
 .file-upload-wrapper .card.card-body.touch-fallback .file-upload-message {
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
-  padding: 40px 0
+  padding: 40px 0;
 }
 
 .file-upload-wrapper .card.card-body.touch-fallback .btn.btn-sm.btn-danger {
   top: auto;
   bottom: 23px;
-  opacity: 1
+  opacity: 1;
 }
 
-.file-upload-wrapper .card.card-body.touch-fallback:hover .file-upload-preview .file-upload-infos .file-upload-infos-inner {
-  margin-top: 5rem
+.file-upload-wrapper
+  .card.card-body.touch-fallback:hover
+  .file-upload-preview
+  .file-upload-infos
+  .file-upload-infos-inner {
+  margin-top: 5rem;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-loader {
@@ -401,7 +434,7 @@ table td {
   top: 15px;
   right: 15px;
   display: none;
-  z-index: 9
+  z-index: 9;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-loader::after {
@@ -409,15 +442,15 @@ table td {
   position: relative;
   width: 20px;
   height: 20px;
-  -webkit-animation: rotate .6s linear infinite;
-  animation: rotate .6s linear infinite;
+  -webkit-animation: rotate 0.6s linear infinite;
+  animation: rotate 0.6s linear infinite;
   -webkit-border-radius: 100%;
   border-radius: 100%;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #777;
   border-left: 1px solid #ccc;
   border-right: 1px solid #777;
-  content: ""
+  content: "";
 }
 
 .file-upload-wrapper .card.card-body .file-upload-errors-container {
@@ -427,13 +460,13 @@ table td {
   right: 0;
   bottom: 0;
   z-index: 3;
-  background: rgba(243, 65, 65, .8);
+  background: rgba(243, 65, 65, 0.8);
   text-align: left;
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: visibility 0s linear .15s, opacity .15s linear;
-  -o-transition: visibility 0s linear .15s, opacity .15s linear;
-  transition: visibility 0s linear .15s, opacity .15s linear
+  -webkit-transition: visibility 0s linear 0.15s, opacity 0.15s linear;
+  -o-transition: visibility 0s linear 0.15s, opacity 0.15s linear;
+  transition: visibility 0s linear 0.15s, opacity 0.15s linear;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-errors-container ul {
@@ -444,13 +477,13 @@ table td {
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%)
+  transform: translateY(-50%);
 }
 
 .file-upload-wrapper .card.card-body .file-upload-errors-container ul li {
   margin-left: 20px;
   color: #fff;
-  font-weight: 700
+  font-weight: 700;
 }
 
 .file-upload-wrapper .card.card-body .file-upload-errors-container.visible {
@@ -458,41 +491,41 @@ table td {
   opacity: 1;
   -webkit-transition-delay: 0s;
   -o-transition-delay: 0s;
-  transition-delay: 0s
+  transition-delay: 0s;
 }
 
-.file-upload-wrapper .card.card-body~.file-upload-errors-container ul {
+.file-upload-wrapper .card.card-body ~ .file-upload-errors-container ul {
   padding: 0;
-  margin: 15px 0
+  margin: 15px 0;
 }
 
-.file-upload-wrapper .card.card-body~.file-upload-errors-container ul li {
+.file-upload-wrapper .card.card-body ~ .file-upload-errors-container ul li {
   margin-left: 20px;
   color: #f34141;
-  font-weight: 700
+  font-weight: 700;
 }
 
 @-webkit-keyframes rotate {
   0% {
-      -webkit-transform: rotateZ(-360deg);
-      transform: rotateZ(-360deg)
+    -webkit-transform: rotateZ(-360deg);
+    transform: rotateZ(-360deg);
   }
 
   100% {
-      -webkit-transform: rotateZ(0);
-      transform: rotateZ(0)
+    -webkit-transform: rotateZ(0);
+    transform: rotateZ(0);
   }
 }
 
 @keyframes rotate {
   0% {
-      -webkit-transform: rotateZ(-360deg);
-      transform: rotateZ(-360deg)
+    -webkit-transform: rotateZ(-360deg);
+    transform: rotateZ(-360deg);
   }
 
   100% {
-      -webkit-transform: rotateZ(0);
-      transform: rotateZ(0)
+    -webkit-transform: rotateZ(0);
+    transform: rotateZ(0);
   }
 }
 
@@ -515,7 +548,7 @@ table td {
 }
 
 .details-control:hover {
-  background-color: rgba(61, 82, 110, 0.335)
+  background-color: rgba(61, 82, 110, 0.335);
 }
 
 .content {
@@ -534,21 +567,6 @@ nav {
   z-index: 2;
 }
 
-@media (min-width: 992px) {
-  .content {
-    border-radius: 5px 0 0 0;
-  }
-
-  .widget {
-    border-radius: 0 5px 0 0;
-  }
-
-  main .container {
-    margin-top: 3em;
-  }
-
-}
-
 .rilisan {
   font-size: 1rem;
 }
@@ -562,15 +580,13 @@ nav {
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, rgba(204, 83, 51, 0.6), rgba(35, 7, 77, 0.6));
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, rgba(204, 83, 51, 0.6), rgba(35, 7, 77, 0.6)),
-  url("/images/banner.jpg");
+  background: linear-gradient(to right, rgba(204, 83, 51, 0.6), rgba(35, 7, 77, 0.6)), url("/images/banner.jpg");
 
   background-blend-mode: darken;
 
   z-index: -1;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
 .custom-prev,
@@ -583,7 +599,6 @@ nav {
   max-width: 10px;
   padding: 0 10px !important;
 }
-
 
 .custom-prev {
   left: 0;
@@ -608,3 +623,40 @@ nav {
 }
 
 //main page
+/* Bootstrap media queries
+*/
+@media only screen and (min-width: 576px) {
+  .rilistable {
+    width: 43%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .rilistable {
+    width: 45%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .rilistable {
+    width: 55%;
+  }
+
+  .content {
+    border-radius: 5px 0 0 0;
+  }
+
+  .widget {
+    border-radius: 0 5px 0 0;
+  }
+
+  main .container {
+    margin-top: 3em;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .rilistable {
+    width: 65%;
+  }
+}
