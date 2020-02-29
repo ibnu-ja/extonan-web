@@ -45,8 +45,8 @@ class AnimeController extends Controller
                 return $row->musim . " " . $row->tahun;
             })
             ->addColumn('action', function ($row) {
-                $btn = '<a href="'.url("/anime/".$row->id."/sunting").'" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editProduct">Sunting</a>';
-                $btn = $btn . ' <a href="'.url("/anime/".$row->id."/hapus").'" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct">Delete</a>';
+                $btn = '<a href="'.url("/anime/".$row->id."/sunting").'" data-toggle="tooltip"  data-id="' . $row->id . '" title="Sunting" class="edit btn btn-primary btn-sm btn-rounded material-tooltip-main editProduct"><i class="fas fa-edit"></i></a>';
+                $btn = $btn . ' <a href="'.url("/anime/".$row->id."/hapus").'" data-toggle="tooltip"  data-id="' . $row->id . '" title="Hapus" class="btn btn-danger btn-sm btn-rounded material-tooltip-main deleteProduct"><i class="fas fa-eraser"></i></a>';
                 return $btn;
             })
             ->rawColumns(['action'])
@@ -61,15 +61,6 @@ class AnimeController extends Controller
     {
         $genres = GenreList::all();
         $anime = Anime::find($id);
-
-        if($request->ajax()){
-            $view = view('admin.anime.tambah', compact('genres', 'anime'))->renderSections();
-            return response()->json([
-                'title' => $view['judul'],
-                'content' => $view['konten'],
-                'script' => $view['script'],
-            ]);
-        }
         
         return view('admin.anime.tambah', compact('genres', 'anime'));
     }
@@ -123,7 +114,6 @@ class AnimeController extends Controller
         foreach ($request->get('genre') as $genre) {
             $animes->genres()->create(['genre' => $genre]);
         }
-
         //simpan
         return redirect('anime')->with('success', 'Tambah anime berhasil');
     }
@@ -136,7 +126,13 @@ class AnimeController extends Controller
             $resultstr[] = GenreList::findOrFail($result->genre)->name;
         }
         $genres = implode(", ", $resultstr);
-        $episodes = DataTables::of(Episode::with('link')->where('anime_id', '=', $anime->id))->make(true);
+        $episodes = DataTables::of(Episode::with('link')->where('anime_id', '=', $anime->id))
+        ->addColumn('action', function ($row) use ($anime) {
+            $btn = '<a href="'.url("/episode/".$anime->id.'/'.$row->id."/sunting").'" data-toggle="tooltip"  data-id="' . $row->id . '" title="Sunting" class="edit btn btn-primary btn-sm btn-rounded material-tooltip-main editProduct"><i class="fas fa-edit"></i></a>';
+            $btn = $btn . ' <a href="'.url("/episode/".$anime->id.'/'.$row->id."/hapus").'" data-toggle="tooltip"  data-id="' . $row->id . '" title="Hapus" class="btn btn-danger btn-sm btn-rounded material-tooltip-main deleteProduct"><i class="fas fa-eraser"></i></a>';
+            return $btn;
+        })
+        ->make(true);
         if (request()->ajax()) {
             return $episodes;
         }
